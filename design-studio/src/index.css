@@ -7,3 +7,12 @@ body {
   background-color: #000;
   color: #fff;
 }
+
+@layer base {
+    #root {
+        @apply pt-52;
+    }
+        footer {
+        @apply mt-40;
+    }
+}
