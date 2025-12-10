@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${isScrolled ? 'bg-black/80 backdrop-blur-xl border-white/[0.05] py-4' : 'bg-transparent py-6'}`}>
+            <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${isScrolled ? 'bg-black/80 backdrop-blur-xl border-white/[0.05] py-6' : 'bg-transparent py-8'}`}>
                 <div className="container mx-auto px-6">
                     {/* Layout: mobile = flex (logo left, menu button right)
                         desktop = grid 3 cols (logo | center links | button) */}
@@ -37,7 +37,7 @@ const Navbar = () => {
                                     <img
                                         src="/src/assets/logo branca.png"
                                         alt="Inside Studio"
-                                        className="h-8 md:h-10 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                                        className="h-10 md:h-12 lg:h-14 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                                         onError={(e) => {
                                             e.target.style.display = 'none';
                                             e.target.parentElement.innerHTML = '<span class="text-xl font-bold tracking-tighter text-white">DESIGN<span class="text-blue-600">.</span>STUDIO</span>';
@@ -49,12 +49,12 @@ const Navbar = () => {
 
                         {/* Coluna 2: links (centralizados no desktop, ocultos no mobile) */}
                         <div className="hidden md:flex justify-center">
-                            <div className="flex items-center gap-6">
+                            <div className="flex items-center gap-8">
                                 {navLinks.map((item) => (
                                     <Link
                                         key={item.path}
                                         to={item.path}
-                                        className={`text-sm font-medium transition-colors ${location.pathname === item.path ? 'text-white' : 'text-neutral-400 hover:text-white'}`}
+                                        className={`text-base md:text-lg font-medium transition-colors ${location.pathname === item.path ? 'text-white' : 'text-neutral-400 hover:text-white'}`}
                                     >
                                         {item.label}
                                     </Link>
@@ -67,7 +67,7 @@ const Navbar = () => {
                             <div className="hidden md:block">
                                 <button
                                     onClick={() => navigate('/contact')}
-                                    className="bg-white text-black px-5 py-2.5 rounded-full hover:bg-neutral-200 transition-colors text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                                    className="bg-white text-black px-8 py-4 rounded-full hover:bg-neutral-200 transition-colors text-s font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                                 >
                                     Começar Projeto
                                 </button>
@@ -75,7 +75,7 @@ const Navbar = () => {
 
                             {/* Botão mobile (aparece apenas em telas pequenas e fica à direita) */}
                             <button
-                                className="md:hidden text-white p-2 ml-4"
+                                className="md:hidden text-white p-3 z-50 ml-4"
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             >
                                 {mobileMenuOpen ? <X /> : <Menu />}
@@ -94,16 +94,19 @@ const Navbar = () => {
                         transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
                         className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-12 md:hidden"
                     >
-                        {navLinks.map((item) => (
-                            <Link
-                                key={item.path}
-                                to={item.path}
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="text-3xl font-bold text-white tracking-tight"
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
+                        <div className="px-8 w-full">
+                            {navLinks.map((item) => (
+                                <Link
+                                    key={item.path}
+                                    to={item.path}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="text-3xl font-bold text-white tracking-tight block text-center py-3"
+                                >
+                                    {item.label}
+                                </Link>
+                            ))}
+                        </div>
+                        
                         <div className="h-px w-20 bg-white/10 my-4" />
                         <button
                             onClick={() => {

@@ -67,17 +67,16 @@ const Home = () => {
                 </motion.div>
 
                 {/* Wall of Work Grid */}
-                <div className="w-full max-w-[1600px] mx-auto px-4 relative z-10 mt-auto">
+                <div className="pt-20 w-full max-w-[1600px] mx-auto px-4 relative z-10 mt-auto">
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[200px] grid-flow-dense">
                         {HERO_GRID_ITEMS.map((img, index) => (
                             <ParallaxCard key={index} item={img} index={index} />
                         ))}
                     </div>
-                    <div className="fixed bottom-0 left-0 w-screen h-64 bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none z-10" />                </div>
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen h-64 bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none z-20" /></div>
             </section>
-
             {/* LOGO TICKER */}
-            <section className="mb-32 z-10 relative bg-black border-t border-white/5">
+            <section className="mb-32 z-10 relative bg-black">
                 <p className="text-center text-xs font-bold uppercase tracking-widest text-neutral-600 mb-8 pt-8">Empresas que confiam em nosso trabalho</p>
                 <div className="w-full overflow-hidden pb-10">
                     <div className="flex w-max">
@@ -221,7 +220,7 @@ const Home = () => {
             </section>
 
             {/* CTA - Contato */}
-            <section className="container mx-auto px-6 py-20 mb-20 z-10 relative">
+            <section className="container mx-auto px-6 z-10 relative">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     {/* Texto Lateral */}
                     <div className="flex flex-col justify-center">
@@ -231,11 +230,11 @@ const Home = () => {
                         <div className="space-y-6">
                             <div className="flex items-center gap-4 text-white">
                                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"><Mail size={20} /></div>
-                                <div><p className="text-sm text-neutral-500">Email</p><p className="font-medium">hello@design.studio</p></div>
+                                <div><p className="text-sm text-neutral-500">Email</p><p className="font-medium">contato@insidestudio.com.br</p></div>
                             </div>
                             <div className="flex items-center gap-4 text-white">
                                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"><Phone size={20} /></div>
-                                <div><p className="text-sm text-neutral-500">Telefone</p><p className="font-medium">+55 11 99999-9999</p></div>
+                                <div><p className="text-sm text-neutral-500">Telefone</p><p className="font-medium">+55 (42) 9 9814.1401</p></div>
                             </div>
                         </div>
                     </div>
