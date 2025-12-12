@@ -13,15 +13,11 @@ const Contact = () => (
         <div className="space-y-6">
           <div className="flex items-center gap-4 text-white">
             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"><Mail size={20}/></div>
-            <div><p className="text-sm text-neutral-500">Email</p><p className="font-medium">hello@design.studio</p></div>
+            <div><p className="text-sm text-neutral-500">Email</p><p className="font-medium">contato@insidestudio.com.br</p></div>
           </div>
           <div className="flex items-center gap-4 text-white">
             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"><Phone size={20}/></div>
-            <div><p className="text-sm text-neutral-500">Telefone</p><p className="font-medium">+55 11 99999-9999</p></div>
-          </div>
-          <div className="flex items-center gap-4 text-white">
-            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"><MapPin size={20}/></div>
-            <div><p className="text-sm text-neutral-500">Escritório</p><p className="font-medium">Av. Paulista, 1000 - SP</p></div>
+            <div><p className="text-sm text-neutral-500">Telefone</p><p className="font-medium">+55 42 99814.1401</p></div>
           </div>
         </div>
       </div>
