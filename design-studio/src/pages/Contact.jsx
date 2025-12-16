@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactForm from '../components/ContactForm';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => (
@@ -23,32 +24,7 @@ const Contact = () => (
       </div>
 
       {/* Formulário - Estático */}
-      <form className="bg-[#080808] p-8 md:p-12 rounded-3xl border border-white/5 space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-neutral-400">Nome</label>
-            <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Seu nome" />
-          </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-neutral-400">Email</label>
-            <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="seu@email.com" />
-          </div>
-        </div>
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-neutral-400">Assunto</label>
-          <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
-            <option>Orçamento de Projeto</option>
-            <option>Parceria</option>
-            <option>Trabalhe Conosco</option>
-            <option>Outros</option>
-          </select>
-        </div>
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-neutral-400">Mensagem</label>
-          <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Conte sobre seu projeto..."></textarea>
-        </div>
-        <button className="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-neutral-200 transition-colors">Enviar Mensagem</button>
-      </form>
+      <ContactForm />
     </div>
   </div>
 );

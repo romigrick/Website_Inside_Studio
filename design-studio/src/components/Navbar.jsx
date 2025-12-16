@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import logoInside from '../assets/logo branca.png';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -35,9 +36,9 @@ const Navbar = () => {
                             <Link to="/" className="flex items-center gap-2 cursor-pointer z-50">
                                 <div className="relative group">
                                     <img
-                                        src="/src/assets/logo branca.png"
+                                        src={logoInside}
                                         alt="Inside Studio"
-                                        className="h-10 md:h-12 lg:h-14 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                                        className="h-10 md:h-12 lg:h-12 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                                         onError={(e) => {
                                             e.target.style.display = 'none';
                                             e.target.parentElement.innerHTML = '<span class="text-xl font-bold tracking-tighter text-white">DESIGN<span class="text-blue-600">.</span>STUDIO</span>';
@@ -54,7 +55,7 @@ const Navbar = () => {
                                     <Link
                                         key={item.path}
                                         to={item.path}
-                                        className={`text-base md:text-lg font-medium transition-colors ${location.pathname === item.path ? 'text-white' : 'text-neutral-400 hover:text-white'}`}
+                                        className={`text-base md:text-sm lg:text-s font-base transition-colors ${location.pathname === item.path ? 'text-white' : 'text-neutral-400 hover:text-white'}`}
                                     >
                                         {item.label}
                                     </Link>
@@ -67,7 +68,7 @@ const Navbar = () => {
                             <div className="hidden md:block">
                                 <button
                                     onClick={() => navigate('/contact')}
-                                    className="bg-white text-black px-8 py-4 rounded-full hover:bg-neutral-200 transition-colors text-s font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                                    className="bg-white text-black px-8 py-4 rounded-full hover:bg-neutral-200 transition-colors text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                                 >
                                     Começar Projeto
                                 </button>

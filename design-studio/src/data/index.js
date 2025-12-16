@@ -1,21 +1,39 @@
 import { Smartphone, Video, Monitor, Layers, Zap, MousePointer2, TrendingUp, Globe, Cpu } from 'lucide-react';
+import imgPost01 from '../portfolio/portfolio (1).PNG';
+import imgPost02 from '../portfolio/portfolio (2).PNG';
+import imgPost03 from '../portfolio/portfolio (3).PNG'; 
+import imgPost04 from '../portfolio/portfolio (4).PNG';
+import imgPost05 from '../portfolio/portfolio (5).PNG';
+import imgPost06 from '../portfolio/portfolio (6).PNG';
+import imgPost07 from '../portfolio/portfolio (7).PNG';
+import imgPost08 from '../portfolio/portfolio (8).PNG';
+import imgPost09 from '../portfolio/portfolio (9).PNG';
+import imgPost10 from '../portfolio/portfolio (10).PNG';
+import imgPost11 from '../portfolio/portfolio (11).PNG';
+import imgPost12 from '../portfolio/portfolio (12).PNG';
+import imgPost13 from '../portfolio/portfolio (13).PNG';
+import imgPost14 from '../portfolio/portfolio (14).PNG';
+import imgPost15 from '../portfolio/portfolio (15).PNG';
+import imgPost16 from '../portfolio/portfolio (16).PNG';
+import imgPost17 from '../portfolio/portfolio (17).PNG';
+import imgPost18 from '../portfolio/portfolio (18).PNG';
+import imgPost19 from '../portfolio/eltoro2.png';
 
 export const CLIENTS = ["Agência V", "TechStart", "Global Corp", "Studio X", "Future Vision", "Next Level"];
 
 export const HERO_GRID_ITEMS = [
-  { src: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop", span: "col-span-1 md:col-span-2 row-span-2", label: "3D Art" }, 
-  { src: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-1", label: "Brand" },
-  { src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-1", label: "Tech" },
-  { src: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-2", label: "Abstract" },
-  { src: "https://images.unsplash.com/photo-1558655146-d09347e0c708?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-1", label: "Social" },
-  { src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop", span: "col-span-1 md:col-span-2 row-span-1", label: "Campaign" },
-  { src: "https://images.unsplash.com/photo-1535385793343-27dff1413c5a?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-1", label: "UI Design" },
-  { src: "https://images.unsplash.com/photo-1621619856624-42fd193a0661?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-1", label: "Mobile" },
-  { src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop", span: "col-span-1 md:col-span-2 row-span-1", label: "VFX" },
-  { src: "https://images.unsplash.com/photo-1633613286991-611fe299c4be?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-1", label: "Concept" },
-  { src: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-1", label: "Art" },
-  { src: "https://images.unsplash.com/photo-1515630278258-407f66498911?q=80&w=800&auto=format&fit=crop", span: "col-span-1 md:col-span-2 row-span-1", label: "Cyber" },
-  { src: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop", span: "col-span-1 row-span-1", label: "Future" },
+  { src: imgPost01, label: "3D Art" },
+  { src: imgPost19, label: "Campaign" },
+  { src: imgPost02, label: "Brand" },
+  { src: imgPost03, label: "Tech" },
+  { src: imgPost04, label: "Abstract" },
+  { src: imgPost05, label: "Social" },
+  { src: imgPost06, label: "UI Design" },
+  { src: imgPost07, label: "Mobile" },
+  { src: imgPost08, label: "VFX" },
+  { src: imgPost09, label: "Concept" },
+  { src: imgPost11, label: "Cyber" },
+  { src: imgPost12, label: "Future" },
 ];
 
 export const TEAM_MEMBERS = [

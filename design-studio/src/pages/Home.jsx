@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Mail, Plus, Minus, Star, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useScroll, useTransform } from 'framer-motion';
+import ContactForm from '../components/ContactForm';
+import MasonryGrid from '../components/MasonryGrid';
 
 // Componentes e Dados
 import Button from '../components/Button';
@@ -68,11 +70,11 @@ const Home = () => {
 
                 {/* Wall of Work Grid */}
                 <div className="pt-20 w-full max-w-[1600px] mx-auto px-4 relative z-10 mt-auto">
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[200px] grid-flow-dense">
-                        {HERO_GRID_ITEMS.map((img, index) => (
-                            <ParallaxCard key={index} item={img} index={index} />
+                    <MasonryGrid>
+                        {HERO_GRID_ITEMS.map((item, index) => (
+                            <ParallaxCard key={index} item={item} />
                         ))}
-                    </div>
+                    </MasonryGrid>
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen h-64 bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none z-20" /></div>
             </section>
             {/* LOGO TICKER */}
@@ -240,32 +242,7 @@ const Home = () => {
                     </div>
 
                     {/* Formulário */}
-                    <form className="bg-[#080808] p-8 md:p-12 rounded-3xl border border-white/5 space-y-6 h-fit sticky top-52">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-neutral-400">Nome</label>
-                                <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Seu nome" />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-neutral-400">Email</label>
-                                <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="seu@email.com" />
-                            </div>
-                        </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-neutral-400">Assunto</label>
-                            <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
-                                <option>Orçamento de Projeto</option>
-                                <option>Parceria</option>
-                                <option>Trabalhe Conosco</option>
-                                <option>Outros</option>
-                            </select>
-                        </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-neutral-400">Mensagem</label>
-                            <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Conte sobre seu projeto..."></textarea>
-                        </div>
-                        <button className="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-neutral-200 transition-colors">Enviar Mensagem</button>
-                    </form>
+                    <ContactForm />
                 </div>
             </section>
         </>
