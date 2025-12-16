@@ -1,39 +1,143 @@
 import { Smartphone, Video, Monitor, Layers, Zap, MousePointer2, TrendingUp, Globe, Cpu } from 'lucide-react';
-import imgPost01 from '../portfolio/portfolio (1).PNG';
-import imgPost02 from '../portfolio/portfolio (2).PNG';
-import imgPost03 from '../portfolio/portfolio (3).PNG'; 
-import imgPost04 from '../portfolio/portfolio (4).PNG';
-import imgPost05 from '../portfolio/portfolio (5).PNG';
-import imgPost06 from '../portfolio/portfolio (6).PNG';
-import imgPost07 from '../portfolio/portfolio (7).PNG';
-import imgPost08 from '../portfolio/portfolio (8).PNG';
-import imgPost09 from '../portfolio/portfolio (9).PNG';
-import imgPost10 from '../portfolio/portfolio (10).PNG';
-import imgPost11 from '../portfolio/portfolio (11).PNG';
-import imgPost12 from '../portfolio/portfolio (12).PNG';
-import imgPost13 from '../portfolio/portfolio (13).PNG';
-import imgPost14 from '../portfolio/portfolio (14).PNG';
-import imgPost15 from '../portfolio/portfolio (15).PNG';
-import imgPost16 from '../portfolio/portfolio (16).PNG';
-import imgPost17 from '../portfolio/portfolio (17).PNG';
-import imgPost18 from '../portfolio/portfolio (18).PNG';
-import imgPost19 from '../portfolio/eltoro2.png';
+
+// Portfolio - Bianchi
+import Bianchi1 from '../portfolio/Bianchi/Bianchi1.png';
+import Bianchi2 from '../portfolio/Bianchi/Bianchi2.png';
+import Bianchi3 from '../portfolio/Bianchi/Bianchi3.png';
+import Bianchi4 from '../portfolio/Bianchi/Bianchi4.jpg';
+import Bianchi5 from '../portfolio/Bianchi/Bianchi5.png';
+import Bianchi6 from '../portfolio/Bianchi/Bianchi6.jpg';
+
+// Portfolio - Chillpass
+import Chillpass1 from '../portfolio/Chillpass/Chillpass1.png';
+
+// Portfolio - Gicred
+import Gicred1 from '../portfolio/Gicred/Gicred1.png';
+import Gicred2 from '../portfolio/Gicred/Gicred2.png';
+import Gicred3 from '../portfolio/Gicred/Gicred3.png';
+import Gicred4 from '../portfolio/Gicred/Gicred4.png';
+import Gicred5 from '../portfolio/Gicred/Gicred5.png';
+import Gicred6 from '../portfolio/Gicred/Gicred6.png';
+import Gicred7 from '../portfolio/Gicred/Gicred7.png';
+import Gicred8 from '../portfolio/Gicred/Gicred8.png';
+import Gicred9 from '../portfolio/Gicred/Gicred9.png';
+
+// Portfolio - Giga4
+import Giga41 from '../portfolio/Giga4/Giga4-1.jpg';
+import Giga42 from '../portfolio/Giga4/Giga4-2.jpg';
+import Giga43 from '../portfolio/Giga4/Giga4-3.jpg';
+import Giga44 from '../portfolio/Giga4/Giga4-4.jpg';
+
+// Portfolio - Gordao
+import Gordao1 from '../portfolio/Gordao/Gordao1.jpg';
+import Gordao2 from '../portfolio/Gordao/Gordao2.jpg';
+import Gordao3 from '../portfolio/Gordao/Gordao3.jpg';
+import Gordao4 from '../portfolio/Gordao/Gordao4.mp4';
+
+// Portfolio - Impressos
+import Impressos11 from '../portfolio/Impressos/11.png';
+import Impressos1 from '../portfolio/Impressos/0316a00e-3ac1-4a65-9c57-03e5a091e37a.jpg';
+import Impressos2 from '../portfolio/Impressos/4933563b-5151-4dff-8d7d-c7fd11b0999b.jpg';
+import ImpressosMockup from '../portfolio/Impressos/mockup.png';
+import ImpressosV3 from '../portfolio/Impressos/v3.png';
+
+// Portfolio - MASAMI
+import Masami1 from '../portfolio/MASAMI/Masami1.png';
+import Masami2 from '../portfolio/MASAMI/Masami2.png';
+import Masami3 from '../portfolio/MASAMI/Masami3.png';
+import Masami4 from '../portfolio/MASAMI/Masami4.png';
+import Masami5 from '../portfolio/MASAMI/Masami5.png';
+
+// Portfolio - Orla
+import Orla1 from '../portfolio/Orla/Orla1.jpg';
+import Orla2 from '../portfolio/Orla/Orla2.jpg';
+import Orla3 from '../portfolio/Orla/Orla3.png';
+import Orla4 from '../portfolio/Orla/Orla4.png';
+import Orla5 from '../portfolio/Orla/Orla5.png';
+import OrlaCarrossel1 from '../portfolio/Orla/images/carrossel_01.jpg';
+import OrlaCarrossel2 from '../portfolio/Orla/images/carrossel_02.jpg';
+import OrlaCarrossel3 from '../portfolio/Orla/images/carrossel_03.jpg';
+import OrlaCarrossel4 from '../portfolio/Orla/images/carrossel_04.jpg';
+import OrlaCarrossel5 from '../portfolio/Orla/images/carrossel_05.jpg';
+import OrlaCarrossel6 from '../portfolio/Orla/images/carrossel_06.jpg';
+import OrlaCarrossel7 from '../portfolio/Orla/images/carrossel_07.jpg';
+
+// Portfolio - Panter
+import Panter1 from '../portfolio/Panter/harmonico-panter_01.jpg';
+
+// Portfolio - Pato
+import Pato1 from '../portfolio/Pato/Patô01.jpg';
+import Pato2 from '../portfolio/Pato/Patô02.jpg';
+import Pato3 from '../portfolio/Pato/Patô03.jpg';
+import Pato4 from '../portfolio/Pato/Patô04.jpg';
+import Pato5 from '../portfolio/Pato/Patô05.jpg';
+import Pato6 from '../portfolio/Pato/Patô06.jpg';
+import Pato7 from '../portfolio/Pato/Patô07.mp4';
+
+// Portfolio - Patobots
+import Patobots1 from '../portfolio/Patobots/Bots1.jpg';
+import Patobots2 from '../portfolio/Patobots/Bots2.jpg';
+import Patobots3 from '../portfolio/Patobots/Bots3.jpg';
+import Patobots4 from '../portfolio/Patobots/Bots4.png';
+import Patobots5 from '../portfolio/Patobots/Bots5.png';
+import Patobots6 from '../portfolio/Patobots/Bots6.jpg';
+import Patobots7 from '../portfolio/Patobots/Bots7.jpg';
+import Patobots8 from '../portfolio/Patobots/Bots8.jpg';
+import Patobots9 from '../portfolio/Patobots/Bots9.png';
+
+// Portfolio - PPNEUS
+import PPneus1 from '../portfolio/PPNEUS/PPneus1.png';
+import PPneus2 from '../portfolio/PPNEUS/PPneus2.png';
+import PPneus3 from '../portfolio/PPNEUS/PPneus3.png';
+
+// Portfolio - Regelli
+import Regelli1 from '../portfolio/Regelli/Regelli1.png';
+import Regelli2 from '../portfolio/Regelli/Regelli2.png';
+
+// Portfolio - Rodeio
+import Rodeio1 from '../portfolio/Rodeio/Rodeio1.png';
+import Rodeio2 from '../portfolio/Rodeio/Rodeio2.png';
+import Rodeio3 from '../portfolio/Rodeio/Rodeio3.png';
+
+// Portfolio - Sollo Sul
+import SolloSul1 from '../portfolio/Sollo Sul/Sollosul1.jpg';
+import SolloSul2 from '../portfolio/Sollo Sul/Sollosul2.jpg';
+import SolloSul3 from '../portfolio/Sollo Sul/Sollosul3.jpg';
+import SolloSul4 from '../portfolio/Sollo Sul/Sollosul4.jpg';
+
+// Portfolio - Solus
+import Solus1 from '../portfolio/Solus/Solus1.jpg';
+import Solus2 from '../portfolio/Solus/Solus2.jpg';
+import Solus3 from '../portfolio/Solus/Solus3.jpg';
+import Solus4 from '../portfolio/Solus/Solus4.jpg';
+
+// Portfolio - Sulshibuco
+import Sulshibuco1 from '../portfolio/Sulshibuco/Sulshibuco1.png';
+import Sulshibuco2 from '../portfolio/Sulshibuco/Sulshibuco2.jpeg';
+
+// Portfolio - UTFPR
+import UTF1 from '../portfolio/UTFPR/UTF1.png';
+import UTF2 from '../portfolio/UTFPR/UTF2.png';
+import UTF3 from '../portfolio/UTFPR/UTF3.png';
+import UTF4 from '../portfolio/UTFPR/UTF4.png';
+import UTF5 from '../portfolio/UTFPR/UTF5.png';
+import UTF6 from '../portfolio/UTFPR/UTF6.jpg';
 
 export const CLIENTS = ["Agência V", "TechStart", "Global Corp", "Studio X", "Future Vision", "Next Level"];
 
 export const HERO_GRID_ITEMS = [
-  { src: imgPost01, label: "3D Art" },
-  { src: imgPost19, label: "Campaign" },
-  { src: imgPost02, label: "Brand" },
-  { src: imgPost03, label: "Tech" },
-  { src: imgPost04, label: "Abstract" },
-  { src: imgPost05, label: "Social" },
-  { src: imgPost06, label: "UI Design" },
-  { src: imgPost07, label: "Mobile" },
-  { src: imgPost08, label: "VFX" },
-  { src: imgPost09, label: "Concept" },
-  { src: imgPost11, label: "Cyber" },
-  { src: imgPost12, label: "Future" },
+  { src: Pato1, label: "Patô Lancheria" },
+  { src: UTF1, label: "UTFPR" },
+  { src: Panter1, label: "Panter Máquinas" },
+  { src: SolloSul1, label: "Lavoro Sollo Sul" },
+  { src: Solus1, label: "Solus Peças Agrícolas" },
+  { src: Orla1, label: "Orla" },
+  { src: Sulshibuco1, label: "Sulshibuco" },
+  { src: Gicred5, label: "Gicred" },
+  { src: Bianchi6, label: "Bianchi Distribuiddora" },
+  { src: Orla2, label: "Orla" },
+  { src: Bianchi1, label: "Bianchi Distribuidora" },
+  { src: Masami3, label: "Masami Motors" },
 ];
 
 export const TEAM_MEMBERS = [

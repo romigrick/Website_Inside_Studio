@@ -26,19 +26,23 @@ const ContactForm = () => {
         message: message
     }
 
+    const templateId = "template_a26d45n";
+    const serviceId = "service_wueiv3d";
+    const myKey = "0sABaEPF59PqSVtsU";
+
     // ⚠️ SUBSTITUA PELOS SEUS DADOS DO EMAILJS AQUI ⚠️
-    emailjs.send("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", templateParams, "SUA_PUBLIC_KEY")
+    emailjs.send(serviceId, templateId, templateParams, myKey)
     .then((response) => {
         console.log("EMAIL ENVIADO", response.status, response.text);
         setName('');
         setEmail('');
         setMessage('');
         setLoading(false);
-        alert("Mensagem enviada com sucesso!");
+       // alert("Mensagem enviada com sucesso!");
     }, (err) => {
         console.log("ERRO: ", err);
         setLoading(false);
-        alert("Erro ao enviar. Tente novamente.");
+        //alert("Erro ao enviar. Tente novamente.");
     });
   }
 

@@ -12,7 +12,7 @@ const ParallaxCard = ({ item }) => {
       transition={{ duration: 0.5 }}
       // 'mb-4': Adiciona o espaço VERTICAL entre um card e outro
       // 'w-full': Garante que ocupe a largura da coluna
-      className="relative mb-4 overflow-hidden group w-full break-inside-avoid"
+      className="rounded-xl relative mb-4 overflow-hidden group w-full break-inside-avoid"
     >
       
       {/* A Imagem define a altura do card */}
