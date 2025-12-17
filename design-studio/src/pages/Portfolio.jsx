@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Importar Link
 import ParallaxCard from '../components/ParallaxCard';
 import { PORTFOLIO_FULL } from '../data';
+import PortfolioCard from '../components/PortfolioCard';
+import MasonryGrid from '../components/MasonryGrid';
 
 const Portfolio = () => (
   <div className="container mx-auto px-6 min-h-screen relative z-10">
@@ -9,13 +11,15 @@ const Portfolio = () => (
       <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">Trabalhos <br/>Selecionados</h1>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[400px]">
+    <div className="w-full max-w-[1600px] mx-auto px-4 relative z-10 mt-auto">
+      <MasonryGrid>
       {PORTFOLIO_FULL.map((item, i) => (
         // Envolvemos o card em um Link passando o ID do projeto
         <Link to={`/project/${item.id}`} key={i} className={`block ${item.span || ''}`}>
-           <ParallaxCard item={item} index={i} />
+           <PortfolioCard item={item} index={i} />
         </Link>
       ))}
+      </MasonryGrid>
     </div>
   </div>
 );

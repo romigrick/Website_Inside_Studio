@@ -29,9 +29,24 @@ const ContactForm = () => {
     const templateId = "template_a26d45n";
     const serviceId = "service_wueiv3d";
     const myKey = "0sABaEPF59PqSVtsU";
+    const replyID = "template_426xx6q";
 
     // ⚠️ SUBSTITUA PELOS SEUS DADOS DO EMAILJS AQUI ⚠️
     emailjs.send(serviceId, templateId, templateParams, myKey)
+    .then((response) => {
+        console.log("EMAIL ENVIADO", response.status, response.text);
+        setName('');
+        setEmail('');
+        setMessage('');
+        setLoading(false);
+       // alert("Mensagem enviada com sucesso!");
+    }, (err) => {
+        console.log("ERRO: ", err);
+        setLoading(false);
+        //alert("Erro ao enviar. Tente novamente.");
+    });
+
+        emailjs.send(serviceId, replyID, templateParams, myKey)
     .then((response) => {
         console.log("EMAIL ENVIADO", response.status, response.text);
         setName('');

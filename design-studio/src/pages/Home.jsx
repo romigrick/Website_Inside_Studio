@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // <-- AGORA IMPORTA useEffect
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Mail, Plus, Minus, Star, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +13,9 @@ import {
     HERO_GRID_ITEMS, CLIENTS, PORTFOLIO_HOME, SERVICES,
     IMPACT_STATS, TESTIMONIALS, FAQS
 } from '../data';
+
+// --- VARIÁVEIS DE ANIMAÇÃO DE TEXTO ---
+const ROTATING_WORDS = ["Inspire.", "Excite.", "Unleash."];
 
 // Componente Accordion local para a Home
 const Accordion = ({ title, children }) => {
@@ -48,23 +51,66 @@ const Home = () => {
     const yHero = useTransform(scrollY, [0, 500], [0, 200]);
     const opacityHero = useTransform(scrollY, [0, 300], [1, 0]);
 
+    // --- LÓGICA DE ROTAÇÃO DE TEXTO (NOVAS VARIÁVEIS E HOOKS) ---
+    const [wordIndex, setWordIndex] = useState(0);
+
+    useEffect(() => {
+        // Configura o intervalo para mudar a palavra a cada 3 segundos
+        const interval = setInterval(() => {
+            setWordIndex((prevIndex) => (prevIndex + 1) % ROTATING_WORDS.length);
+        }, 3000); 
+
+        // Limpa o intervalo
+        return () => clearInterval(interval);
+    }, []);
+
+    const currentWord = ROTATING_WORDS[wordIndex];
+
+    const wordVariants = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 10 } },
+        exit: { opacity: 0, y: -20, transition: { duration: 0.2 } }
+    };
+    // -----------------------------------------------------------
+
+
     return (
         <>
             {/* HERO SECTION */}
             <section className="relative flex flex-col items-center justify-between min-h-screen">
                 <motion.div style={{ y: yHero, opacity: opacityHero }} className="container mx-auto px-6 flex flex-col items-center text-center relative z-20 mb-16">
                     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="mb-8 flex items-center gap-2 px-5 py-2 rounded-full border border-white/5 bg-white/[0.02] text-xs font-bold text-neutral-400 uppercase tracking-widest backdrop-blur-md hover:bg-white/[0.05] transition-colors cursor-default">
-                        <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />Disponível para Projetos 2024
+                        <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />Disponível para Projetos 2026
                     </motion.div>
                     <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8 text-white relative z-10 drop-shadow-2xl">
-                        Design that <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-neutral-400">Moves People.</span>
+                        Created to<br /> 
+                        
+                        {/* NOVO CÓDIGO PARA A ROTAÇÃO DE PALAVRAS */}
+                        <span className="inline-flex overflow-hidden relative h-32 items-center justify-center">
+                            <AnimatePresence mode="popLayout">
+                                <motion.span
+                                    key={currentWord} // ESSENCIAL: Força a animação de saída/entrada
+                                    variants={wordVariants}
+                                    initial="initial"
+                                    animate="animate"
+                                    exit="exit"
+                                    // Classes Tailwind para o texto rotativo
+                                    className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-neutral-400"
+                                >
+                                    {currentWord}
+                                </motion.span>
+                            </AnimatePresence>
+                        </span>
+                        {/* FIM DO CÓDIGO DA ROTAÇÃO */}
+
                     </motion.h1>
                     <p className="text-xl md:text-2xl text-neutral-400 max-w-3xl mb-12 leading-relaxed font-light relative z-10 drop-shadow-lg">
-                        Somos um estúdio de design digital focado em <span className="text-white font-medium">Motion, VFX e Social Media</span>.
+                        Transformamos ideias em <span className="text-white font-medium">experiências visuais impactantes </span>para elevar o impacto da sua marca a um novo patamar.
+                        
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 relative z-30">
                         <Button primary icon={ArrowRight} onClick={() => navigate('/portfolio')}>Ver Projetos</Button>
-                        <Button icon={Play}>Showreel 2024</Button>
+                        <Button icon={Play}>Nosso Instagram</Button>
                     </div>
                 </motion.div>
 

@@ -4,13 +4,15 @@ import { ArrowLeft, Calendar, User, Tag, ChevronLeft, ChevronRight } from 'lucid
 import { motion, AnimatePresence } from 'framer-motion';
 import { PORTFOLIO_FULL } from '../data';
 
+
 const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   // Encontra o projeto
-  const project = PORTFOLIO_FULL.find(p => p.id === parseInt(id));
+  const projectId = id ? parseInt(id) : 0;
+  const project = PORTFOLIO_FULL.find(p => p.id === projectId);
 
   // Garante que o array de galeria exista, senão usa a imagem única como array
   const galleryImages = project?.gallery || (project?.image ? [project.image] : []);
@@ -149,26 +151,26 @@ const ProjectDetails = () => {
 
           {/* Descrição */}
           <div className="mb-10">
-            <h3 className="text-xl font-bold text-white mb-4">O Desafio</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Ideia Central</h3>
             <p className="text-neutral-400 text-lg leading-relaxed whitespace-pre-line mb-6">
               {project.description}
             </p>
-            <p className="text-neutral-400 text-lg leading-relaxed">
-              Nosso objetivo foi traduzir a visão da {project.client} em uma experiência visual que ressoasse com seu público-alvo. Através de iterações de design e prototipagem rápida, chegamos a um resultado que não apenas atende, mas supera as expectativas estéticas e funcionais.
-            </p>
           </div>
           
-          {/* Ferramentas (Tags) */}
-          <div className="bg-[#080808] p-6 rounded-2xl border border-white/5">
-            <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider opacity-70">Tech Stack & Tools</h4>
-            <div className="flex flex-wrap gap-2">
-              {["Figma", "After Effects", "Cinema 4D", "Octane Render", "Premiere Pro"].map(tool => (
-                <span key={tool} className="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-neutral-300 border border-white/5 hover:bg-white/10 hover:text-white transition-colors cursor-default">
-                  {tool}
-                </span>
-              ))}
+
+          {/* Tags do Projeto */}
+          {project.tags && project.tags.length > 0 && (
+            <div className="bg-[#080808] p-6 rounded-2xl border border-white/5">
+              <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider opacity-70">Tags & Categorias</h4>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map(tag => (
+                  <span key={tag} className="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-neutral-300 border border-white/5 hover:bg-white/10 hover:text-white transition-colors cursor-default">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
         </div>
       </div>
