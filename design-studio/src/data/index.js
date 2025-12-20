@@ -160,11 +160,40 @@ export const HERO_GRID_ITEMS = [
   { src: Masami3, label: "Masami Motors" },
 ];
 
+
 export const TEAM_MEMBERS = [
-  { name: "Richardson Romig", role: "Diretor Criativo", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" },
-  { name: "Giseli Matos", role: "WEB Developer", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" },
-  { name: "Guilherme F. Teixeira", role: "Designer Gráfico & Motion", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" },
-  { name: "Elena Volkov", role: "Design Lead", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" },
+  { 
+    name: "Richardson Romig", 
+    role: "Diretor Criativo", 
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+    bio: "Líder visionário que transforma ideias em realidade visual. 8+ anos transformando marcas através da criação estratégica.",
+    skills: ["Direção Criativa", "Estratégia de Marca", "Branding", "Liderança"],
+    experience: "8+ anos"
+  },
+  { 
+    name: "Giseli Matos", 
+    role: "WEB Developer", 
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+    bio: "Especialista em desenvolvimento web que transforma designs em experiências digitais interativas e funcionais.",
+    skills: ["React", "JavaScript", "UI/UX", "Responsive Design"],
+    experience: "5+ anos"
+  },
+  { 
+    name: "Guilherme F. Teixeira", 
+    role: "Designer Gráfico & Motion", 
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+    bio: "Mestre em motion graphics e design gráfico que dá vida às marcas através de animações impactantes e visuais marcantes.",
+    skills: ["Motion Graphics", "After Effects", "Ilustração", "Animação"],
+    experience: "6+ anos"
+  },
+  { 
+    name: "Elena Volkov", 
+    role: "Design Lead", 
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+    bio: "Especialista em design systems e experiência do usuário, garantindo consistência e excelência em cada projeto.",
+    skills: ["Design Systems", "UX/UI", "Prototipagem", "Pesquisa"],
+    experience: "7+ anos"
+  },
 ];
 
 // PORTFOLIO COMPLETO - ORGANIZADO POR PASTA/PROJETO
@@ -497,7 +526,7 @@ export const IMPACT_STATS = [
     // NOVO ITEM FOCADO EM INOVAÇÃO E QUALIDADE
     title: "Inovação Constante", 
     value: "Next Gen", 
-    desc: "Garantia de que sua marca está sempre à frente. Utilizamos o pipeline de produção mais moderno do mercado para resultados cinematográficos e disruptivos.", 
+    desc: "Garantia de que sua marca está sempre à frente. Utilizamos as ferramentas de produção mais modernas do mercado para trazer o impacto e o resultado que a sua marca merece.", 
     icon: Cpu,
     colSpan: "col-span-1 md:col-span-2" 
   },
@@ -509,8 +538,115 @@ export const TESTIMONIALS = [
   { name: "Elena Kovic", role: "Product Lead @ Next", text: "A velocidade de entrega combinada com a qualidade visual é algo raro de encontrar. Parceiros para a vida toda." },
 ];
 
+
 export const FAQS = [
   { question: "Qual o prazo médio de entrega?", answer: "Projetos de identidade visual levam entre 2-4 semanas. Projetos de web design completos, cerca de 4-6 semanas." },
   { question: "Vocês fazem apenas a parte visual?", answer: "Nosso foco é visual e experiência (UI/UX). Para desenvolvimento (código), temos parceiros de confiança que indicamos." },
   { question: "Como funciona o pagamento?", answer: "Trabalhamos com 50% de entrada para reserva de agenda e 50% na entrega final dos arquivos." },
 ];
+
+// ==========================================
+// DADOS DA EMPRESA - INSIDE STUDIO
+// ==========================================
+
+export const COMPANY_INFO = {
+  story: {
+    title: "Nasceu para ser diferente",
+    subtitle: "Uma revolução criativa",
+    content: "O Inside Studio nasceu da visão de que o mercado de comunicação precisava de uma abordagem verdadeiramente diferente. Enquanto outras agências focavam apenas em 'entregar projetos', nós decidimos focar em criar materiais que realmente impactem e tragam resultados tangíveis para nossos clientes.",
+    year: "2019",
+    vision: "Ser o studio criativo de referência em qualidade e inovação no Brasil."
+  },
+  
+  values: [
+    {
+      title: "Impacto Real",
+      description: "Cada projeto é criado pensando no resultado concreto que trará para o cliente.",
+      icon: "⚡"
+    },
+    {
+      title: "Inovação Constante",
+      description: "Utilizamos as ferramentas mais modernas e técnicas mais avançadas do mercado.",
+      icon: "🚀"
+    },
+    {
+      title: "Qualidade Sem Compromissos",
+      description: "Excelência em cada pixel, cada animação, cada detalhe entregue.",
+      icon: "💎"
+    },
+    {
+      title: "Proximidade Genuína",
+      description: "Trabalhamos lado a lado com nossos clientes, entendendo profundamente seus desafios.",
+      icon: "🤝"
+    }
+  ],
+
+  process: [
+    {
+      step: "01",
+      title: "Descoberta",
+      description: "Mergulhamos fundo no seu negócio, público e objetivos para entender verdadeiramente o que precisa ser comunicado.",
+      duration: "1-2 semanas"
+    },
+    {
+      step: "02", 
+      title: "Estratégia",
+      description: "Desenvolvemos uma estratégia criativa única, alinhada com seus objetivos e Diferenciada da concorrência.",
+      duration: "1 semana"
+    },
+    {
+      step: "03",
+      title: "Criação",
+      description: "Transformamos a estratégia em designs impactantes, utilizando as melhores ferramentas e técnicas disponíveis.",
+      duration: "2-4 semanas"
+    },
+    {
+      step: "04",
+      title: "Refinamento",
+      description: "Iteramos e aprimoramos até alcançarmos a perfeição que sua marca merece.",
+      duration: "1-2 semanas"
+    },
+    {
+      step: "05",
+      title: "Entrega",
+      description: "Entregamos não apenas arquivos, mas um sistema completo pronto para gerar resultados.",
+      duration: "1 semana"
+    }
+  ],
+
+  clientTypes: {
+    b2c: {
+      title: "Para Donos de Empreendimentos",
+      subtitle: "Pequenas e Médias Empresas",
+      description: "Empreendedores que buscam elevar sua marca a um novo patamar através de materiais visuais de alta qualidade que geram resultados reais.",
+      services: [
+        "Identidade Visual Completa",
+        "Materiais para Redes Sociais", 
+        "Sites e Landing Pages",
+        "Material Gráfico para Impressão",
+        "Vídeos Promocionais"
+      ],
+      icon: "🏢"
+    },
+    b2b: {
+      title: "Para Outras Agências",
+      subtitle: "Parceria Estratégica",
+      description: "Agências que buscam qualidade premium para seus clientes, com flexibilidade para white label e total confidencialidade.",
+      services: [
+        "White Label Services",
+        "Motion Graphics Avançado",
+        "Desenvolvimento Web Complexo",
+        "Identidades Visuais Completas",
+        "Produção de Conteúdo Premium"
+      ],
+      icon: "🤝"
+    }
+  },
+
+  stats: [
+    { value: "50+", label: "Projetos Entregues", description: "Cada um com identidade única" },
+    { value: "25+", label: "Clientes Satisfeitos", description: "Que voltaram para mais projetos" },
+    { value: "5", label: "Anos de Experiência", description: "Refinando nossa metodologia" },
+    { value: "100%", label: "Comprometimento", description: "Com cada projeto entregue" }
+  ]
+};

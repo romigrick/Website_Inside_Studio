@@ -109,8 +109,8 @@ const Home = () => {
                         
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 relative z-30">
+                        <Button icon={Mail} onClick={() => navigate('/contato')}>Quero um orçamento</Button>
                         <Button primary icon={ArrowRight} onClick={() => navigate('/portfolio')}>Ver Projetos</Button>
-                        <Button icon={Play}>Nosso Instagram</Button>
                     </div>
                 </motion.div>
 
@@ -125,7 +125,7 @@ const Home = () => {
             </section>
             {/* LOGO TICKER */}
             <section className="mb-32 z-10 relative bg-black">
-                <p className="text-center text-xs font-bold uppercase tracking-widest text-neutral-600 mb-8 pt-8">Empresas que confiam em nosso trabalho</p>
+                <p className="text-center text-xs font-bold uppercase tracking-widest text-neutral-600 mb-8 pt-8">Empresas que confiaram em nosso trabalho</p>
                 <div className="w-full overflow-hidden pb-10">
                     <div className="flex w-max">
                         {[...Array(2)].map((_, i) => (
@@ -193,7 +193,7 @@ const Home = () => {
                         <p className="text-neutral-400 text-lg leading-relaxed mb-8">
                             Não somos apenas designers. Somos parceiros estratégicos obcecados por performance visual e resultados tangíveis.
                         </p>
-                        <Button icon={ArrowRight} onClick={() => navigate('/team')}>Conheça a Agência</Button>
+                        <Button icon={ArrowRight} onClick={() => navigate('/team')}>Conheça a gente</Button>
                     </div>
 
                     <div className="md:w-2/3 w-full">
