@@ -8,6 +8,7 @@ import Team from './pages/Team';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import ProjectDetails from './pages/ProjectDetails'; // Importando a nova página
+import RouteChangeTracker from './components/RouteChangeTracker';
 
 // Componente para rolar para o topo ao mudar de rota
 const ScrollToTop = () => {
@@ -21,6 +22,7 @@ const ScrollToTop = () => {
 const App = () => {
   return (
     <Router>
+      <RouteChangeTracker />
       <ScrollToTop />
       <div className="min-h-screen bg-black text-white selection:bg-blue-500/30 overflow-x-hidden font-sans">
         
