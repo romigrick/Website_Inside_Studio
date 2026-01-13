@@ -1,4 +1,4 @@
-import { Smartphone, Video, Monitor, Layers, Zap, MousePointer2, TrendingUp, Globe, Cpu } from 'lucide-react';
+import { Smartphone, Video, Camera, Layers, Zap, MousePointer2, TrendingUp, Globe, Cpu } from 'lucide-react';
 
 // Portfolio - Bianchi
 import Bianchi1 from '../portfolio/Bianchi/Bianchi1.png';
@@ -160,39 +160,41 @@ export const HERO_GRID_ITEMS = [
   { src: Masami3, label: "Masami Motors" },
 ];
 
-
+import imgRick from '../assets/rick.jpeg';
+import imgGui from '../assets/gui.png';
+import imgGi from '../assets/gi.png';
 export const TEAM_MEMBERS = [
   { 
     name: "Richardson Romig", 
     role: "Diretor Criativo", 
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+    image: imgRick,
+    linkedin: "https://www.linkedin.com/in/romigrick/",
+    instagram: "https://instagram.com/_romigrick",
+    github: "https://github.com/romigrick",
     bio: "Líder visionário que transforma ideias em realidade visual. 8+ anos transformando marcas através da criação estratégica.",
-    skills: ["Direção Criativa", "Estratégia de Marca", "Branding", "Liderança"],
-    experience: "8+ anos"
+    skills: ["Web Developer", "Fotógrafo", "Graphic Designer", "Film Maker", "UI/UX"],
+    experience: "5+ anos"
   },
   { 
     name: "Giseli Matos", 
     role: "WEB Developer", 
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+    image: imgGi,
+    linkedin: "https://www.linkedin.com/in/giselimatos/",
+    instagram: "https://instagram.com/gisamtos_",
+    github: "https://github.com/GiseliMatos",
     bio: "Especialista em desenvolvimento web que transforma designs em experiências digitais interativas e funcionais.",
-    skills: ["React", "JavaScript", "UI/UX", "Responsive Design"],
-    experience: "5+ anos"
+    skills: ["React", "Wordpress", "Google ADS", "Facebook ADS"],
+    experience: "3+ anos"
   },
   { 
     name: "Guilherme F. Teixeira", 
     role: "Designer Gráfico & Motion", 
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+    image: imgGui,
+    linkedin: "https://www.linkedin.com/in/guilherme-ferreira-teixeira-625b68227/",
+    instagram: "https://instagram.com/oscowlf",
     bio: "Mestre em motion graphics e design gráfico que dá vida às marcas através de animações impactantes e visuais marcantes.",
-    skills: ["Motion Graphics", "After Effects", "Ilustração", "Animação"],
-    experience: "6+ anos"
-  },
-  { 
-    name: "Elena Volkov", 
-    role: "Design Lead", 
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
-    bio: "Especialista em design systems e experiência do usuário, garantindo consistência e excelência em cada projeto.",
-    skills: ["Design Systems", "UX/UI", "Prototipagem", "Pesquisa"],
-    experience: "7+ anos"
+    skills: ["Motion Graphics", "After Effects", "Social Media", "Branding"],
+    experience: "8+ anos"
   },
 ];
 
@@ -262,22 +264,7 @@ export const PORTFOLIO_FULL = [
     tags: ["Key Visual", "Social Media", "Design"]
   },
 
-  // ==========================================
-  // GORDÃO
-  // ==========================================
-  { 
-    id: 5, 
-    type: "Social Media", 
-    title: "Gordão Lanches", 
-    category: "Social Media", 
-    client: "Gordão",
-    year: "2025",
-    description: "Desenvolvemos conteúdo visual impactante seguindo a campanha vigente da marca, que usava elementos piratas para trazer a ideia de que cada lanche era um tesouro.",
-    image: Gordao1,
-    gallery: [Gordao1, Gordao2, Gordao3, Gordao4],
-    tags: ["Social Media", "Key Visual", "Animação", "Storytelling"]
-  },
-
+  
   // ==========================================
   // IMPRESSOS
   // ==========================================
@@ -293,23 +280,11 @@ export const PORTFOLIO_FULL = [
     gallery: [Impressos11, Impressos1, Impressos2, ImpressosMockup, ImpressosV3],
     tags: ["Flyers", "Folders", "Mockups", "Material Impresso"]
   },
-
+  
   // ==========================================
   // MASAMI MOTORS
   // ==========================================
-  { 
-    id: 7, 
-    type: "Key Visual", 
-    title: "Masami Motors", 
-    category: "Identidade Visual", 
-    client: "Masami Motors",
-    year: "2024",
-    description: "Identidade visual completa para concessionária de veículos. Criamos um sistema visual que reflete qualidade, confiabilidade e modernidade no setor automotivo.",
-    image: Masami1,
-    gallery: [Masami1, Masami2, Masami3, Masami4, Masami5],
-    tags: ["Logo", "Identidade Visual", "Sinalização", "Material Promocional"]
-  },
-
+  
   // ==========================================
   // ORLA
   // ==========================================
@@ -325,12 +300,38 @@ export const PORTFOLIO_FULL = [
     gallery: [Orla1, Orla2, Orla3, Orla4, Orla5, OrlaCarrossel1, OrlaCarrossel2, OrlaCarrossel3, OrlaCarrossel4, OrlaCarrossel5, OrlaCarrossel6, OrlaCarrossel7],
     tags: ["Social Media", "Key Visual", "Design", "Marketing"]
   },
-
   // ==========================================
-  // PANTER MÁQUINAS
+  // GORDÃO
   // ==========================================
   { 
     id: 9, 
+    type: "Social Media", 
+    title: "Gordão Lanches", 
+    category: "Social Media", 
+    client: "Gordão",
+    year: "2025",
+    description: "Desenvolvemos conteúdo visual impactante seguindo a campanha vigente da marca, que usava elementos piratas para trazer a ideia de que cada lanche era um tesouro.",
+    image: Gordao1,
+    gallery: [Gordao1, Gordao2, Gordao3, Gordao4],
+    tags: ["Social Media", "Key Visual", "Animação", "Storytelling"]
+  },
+  
+  { 
+    id: 7, 
+    type: "Key Visual", 
+    title: "Masami Motors", 
+    category: "Identidade Visual", 
+    client: "Masami Motors",
+    year: "2024",
+    description: "Identidade visual completa para concessionária de veículos. Criamos um sistema visual que reflete qualidade, confiabilidade e modernidade no setor automotivo.",
+    image: Masami1,
+    gallery: [Masami1, Masami2, Masami3, Masami4, Masami5],
+    tags: ["Logo", "Identidade Visual", "Sinalização", "Material Promocional"]
+  },
+  // ==========================================
+  // PANTER MÁQUINAS
+  { 
+    id: 5, 
     type: "Social Media", 
     title: "Panter Máquinas", 
     category: "Key Visual", 
@@ -341,6 +342,7 @@ export const PORTFOLIO_FULL = [
     gallery: [Panter1],
     tags: ["Identidade Industrial", "Equipamentos", "Catálogo", "Sinalização"]
   },
+  // ==========================================
 
   // ==========================================
   // PATÔ LANCHERIA
@@ -489,15 +491,15 @@ export const PORTFOLIO_FULL = [
 ]
 
 export const PORTFOLIO_HOME = PORTFOLIO_FULL.filter(projeto => 
-    [35, 12, 7].includes(projeto.id) // <--- Lista de IDs definida diretamente aqui
+    [1, 6, 14].includes(projeto.id) // <--- Lista de IDs definida diretamente aqui
 );
 export const SERVICES = [
-  { title: "Desenvolvimento de Sites", desc: "Criação de Sites responsivos e impactantes usando as melhores tecnologias do mercado", icon: MousePointer2 },
+  { title: "Desenvolvimento de Sites", desc: "Criação de Sites e Landing Pages responsivas e impactantes usando as melhores tecnologias do mercado", icon: MousePointer2 },
   { title: "Social Media", desc: "Design estratégico para feeds. Carrosséis, Stories e Reels que convertem.", icon: Smartphone },
-  { title: "Web Design", desc: "Prototipação de Landing pages de alta conversão e sites institucionais imersivos.", icon: Monitor },
+  { title: "Ensaios Fotográficos", desc: "Captura e edição de fotografias em eventos corporativos, casamentos e produção de ensaios fotográficos.", icon: Camera },
   { title: "Identidade Visual", desc: "Criação de marcas do zero. Logo, tipografia e manuais de marca.", icon: Zap },
   { title: "Motion Graphics", desc: "Animação 2D e 3D para explicar produtos e dar vida à marca.", icon: Video },
-  { title: "VFX & Edição", desc: "Pós-produção cinematográfica para comerciais e vídeos corporativos.", icon: Layers },
+  { title: "Edição de Videos", desc: "Pós-produção cinematográfica para comerciais e vídeos corporativos.", icon: Layers },
 ];
 
 export const IMPACT_STATS = [
@@ -541,8 +543,10 @@ export const TESTIMONIALS = [
 
 export const FAQS = [
   { question: "Qual o prazo médio de entrega?", answer: "Projetos de identidade visual levam entre 2-4 semanas. Projetos de web design completos, cerca de 4-6 semanas." },
-  { question: "Vocês fazem apenas a parte visual?", answer: "Nosso foco é visual e experiência (UI/UX). Para desenvolvimento (código), temos parceiros de confiança que indicamos." },
-  { question: "Como funciona o pagamento?", answer: "Trabalhamos com 50% de entrada para reserva de agenda e 50% na entrega final dos arquivos." },
+  { question: "Vocês fazem apenas a parte visual?", answer: "Nosso foco principal é o desenvolvimento de materiais visuais, mas trabalhamos com toda a parte de desenvolvimento." },
+  { question: "Como funciona o pagamento?", answer: "Trabalhamos com 50% de entrada para reserva de agenda e 50% na entrega final do trabalho." },
+  { question: "Vocês oferecem suporte pós-entrega?", answer: "Sim! Oferecemos pacotes de suporte e manutenção para garantir que tudo continue funcionando perfeitamente." },
+  { question: "Vocês são uma agência de marketing?", answer: "Não. Nós nos posicionamos como um Studio de Performance, nosso foco é te fornecer o que é necessário para que suas campanhas performem." },
 ];
 
 // ==========================================
@@ -553,72 +557,77 @@ export const COMPANY_INFO = {
   story: {
     title: "Nasceu para ser diferente",
     subtitle: "Uma revolução criativa",
-    content: "O Inside Studio nasceu da visão de que o mercado de comunicação precisava de uma abordagem verdadeiramente diferente. Enquanto outras agências focavam apenas em 'entregar projetos', nós decidimos focar em criar materiais que realmente impactem e tragam resultados tangíveis para nossos clientes.",
-    year: "2019",
+    content: "O Inside nasceu da visão de que o mercado de comunicação precisava de uma abordagem verdadeiramente diferente. Enquanto agências focam apenas em 'entregar projetos', nós decidimos focar em criar materiais que realmente impactem e tragam resultados tangíveis para nossos clientes.",
+    year: "2020",
     vision: "Ser o studio criativo de referência em qualidade e inovação no Brasil."
   },
   
   values: [
     {
-      title: "Impacto Real",
+      title: "Impacto real",
       description: "Cada projeto é criado pensando no resultado concreto que trará para o cliente.",
       icon: "⚡"
     },
     {
-      title: "Inovação Constante",
+      title: "Inovação constante",
       description: "Utilizamos as ferramentas mais modernas e técnicas mais avançadas do mercado.",
       icon: "🚀"
     },
     {
-      title: "Qualidade Sem Compromissos",
+      title: "Compromisso com a qualidade",
       description: "Excelência em cada pixel, cada animação, cada detalhe entregue.",
       icon: "💎"
     },
     {
-      title: "Proximidade Genuína",
+      title: "Proximidade genuína",
       description: "Trabalhamos lado a lado com nossos clientes, entendendo profundamente seus desafios.",
       icon: "🤝"
     }
   ],
-
-  process: [
-    {
-      step: "01",
-      title: "Descoberta",
-      description: "Mergulhamos fundo no seu negócio, público e objetivos para entender verdadeiramente o que precisa ser comunicado.",
-      duration: "1-2 semanas"
-    },
-    {
-      step: "02", 
-      title: "Estratégia",
-      description: "Desenvolvemos uma estratégia criativa única, alinhada com seus objetivos e Diferenciada da concorrência.",
-      duration: "1 semana"
-    },
-    {
-      step: "03",
-      title: "Criação",
-      description: "Transformamos a estratégia em designs impactantes, utilizando as melhores ferramentas e técnicas disponíveis.",
-      duration: "2-4 semanas"
-    },
-    {
-      step: "04",
-      title: "Refinamento",
-      description: "Iteramos e aprimoramos até alcançarmos a perfeição que sua marca merece.",
-      duration: "1-2 semanas"
-    },
-    {
-      step: "05",
-      title: "Entrega",
-      description: "Entregamos não apenas arquivos, mas um sistema completo pronto para gerar resultados.",
-      duration: "1 semana"
-    }
-  ],
+process: [
+  {
+    step: "01",
+    title: "Imersão",
+    description: "Mapeamento completo do seu ecossistema, referências visuais e análise do posicionamento atual da marca.",
+    duration: "1 semana"
+  },
+  {
+    step: "02",
+    title: "Conceituação",
+    description: "Definição do caminho visual e da narrativa que guiarão toda a estética e linguagem do projeto.",
+    duration: "1 semana"
+  },
+  {
+    step: "03",
+    title: "Design",
+    description: "Desenvolvimento criativo de alta fidelidade, onde transformamos conceitos em ativos visuais exclusivos.",
+    duration: "2-3 semanas"
+  },
+  {
+    step: "04",
+    title: "Revisão",
+    description: "Rodadas de feedback colaborativo para ajustar cada detalhe técnico e estético à sua visão.",
+    duration: "1-2 semanas"
+  },
+  {
+    step: "05",
+    title: "Finalização",
+    description: "Preparação técnica rigorosa de todos os arquivos, guias de estilo e exportação em múltiplos formatos.",
+    duration: "1 semana"
+  },
+  {
+    step: "06",
+    title: "Implementação",
+    description: "Suporte no lançamento e orientações sobre como aplicar a nova identidade em todos os seus canais.",
+    duration: "Acompanhamento"
+  }
+],
 
   clientTypes: {
     b2c: {
       title: "Para Donos de Empreendimentos",
       subtitle: "Pequenas e Médias Empresas",
-      description: "Empreendedores que buscam elevar sua marca a um novo patamar através de materiais visuais de alta qualidade que geram resultados reais.",
+      description: "Empreendedores que buscam elevar o nível da sua marca através de materiais visuais de alta performance.",
       services: [
         "Identidade Visual Completa",
         "Materiais para Redes Sociais", 
@@ -631,7 +640,7 @@ export const COMPANY_INFO = {
     b2b: {
       title: "Para Outras Agências",
       subtitle: "Parceria Estratégica",
-      description: "Agências que buscam qualidade premium para seus clientes, com flexibilidade para white label e total confidencialidade.",
+      description: "Agências que buscam qualidade premium para seus clientes, para extrair o potencial maximo em suas campanhas.",
       services: [
         "White Label Services",
         "Motion Graphics Avançado",

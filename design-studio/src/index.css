@@ -10,9 +10,9 @@ body {
 
 @layer base {
     #root {
-        @apply pt-52;
+        @apply pt-40;
     }
         footer {
-        @apply mt-40;
+        @apply mt-24;
     }
 }

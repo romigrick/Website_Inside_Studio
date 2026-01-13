@@ -42,22 +42,17 @@ const Team = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Sobre a Inside */}
         <section className="mb-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8">
-              <span className="text-blue-500 text-sm font-medium uppercase tracking-wider">
-                Nossa História
-              </span>
+          <div className="align-center mx-auto text-center">
+            <div className="mb-4">
+             <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossa História</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              {COMPANY_INFO.story.title}
-            </h2>
-            <h3 className="text-xl md:text-2xl text-blue-400 mb-8 font-light">
-              {COMPANY_INFO.story.subtitle}
-            </h3>
-            <p className="text-lg text-neutral-300 leading-relaxed mb-8">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
+              Nasceu para<br></br>ser diferente
+            </h1>
+            <p className="text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed mb-8">
               {COMPANY_INFO.story.content}
             </p>
-            <div className="flex items-center justify-center gap-8 text-sm text-neutral-400">
+            <div className="flex items-left justify-center gap-8 text-sm text-neutral-400">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-blue-500" />
                 <span>Fundado em {COMPANY_INFO.story.year}</span>
@@ -71,11 +66,10 @@ const Team = () => {
         </section>
 
         {/* Nossos Valores */}
-        <section className="mb-32">
-          <div className="text-center mb-16">
-            <span className="text-blue-500 text-sm font-medium uppercase tracking-wider">Nossos Princípios</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Nossa Diferença</h2>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
+        <section className="mb-20">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Nossos Diferenciais</h2>
+            <p className="text-xl text-neutral-400 mx-auto">
               Valores que guiam cada decisão e definem nossa abordagem única
             </p>
           </div>
@@ -99,47 +93,53 @@ const Team = () => {
         </section>
 
         {/* Como Trabalhamos */}
-        <section className="mb-32">
+        <section className="mb-20">
           <div className="text-center mb-16">
-            <span className="text-blue-500 text-sm font-medium uppercase tracking-wider">Nossa Metodologia</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Como Trabalhamos</h2>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
+            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossa Metodologia</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Como Trabalhamos</h2>
+            <p className="text-xl text-neutral-400 mx-auto">
               Um processo comprovado que garante resultados excepcionais
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="space-y-8">
-              {COMPANY_INFO.process.map((step, index) => (
-                <div key={index} className="flex flex-col md:flex-row items-center gap-8 p-8 rounded-2xl bg-neutral-800/30 border border-neutral-700 hover:border-blue-500/50 transition-all duration-300">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
-                      {step.step}
-                    </div>
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
-                      <h3 className="text-2xl font-bold text-white">{step.title}</h3>
-                      <span className="text-blue-400 text-sm font-medium">{step.duration}</span>
-                    </div>
-                    <p className="text-neutral-400 leading-relaxed">{step.description}</p>
-                  </div>
-                  {index < COMPANY_INFO.process.length - 1 && (
-                    <div className="hidden md:block">
-                      <ArrowRight className="w-6 h-6 text-blue-500" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+<div className="max-w-6xl mx-auto">
+  {/* Grid de 2 colunas a partir de 'lg' para garantir espaço interno */}
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    {COMPANY_INFO.process.map((step, index) => (
+      <div 
+        key={index} 
+        className="flex flex-row items-start gap-6 p-6 rounded-2xl bg-neutral-800/30 border border-neutral-700 hover:border-blue-500/50 transition-all duration-300"
+      >
+        {/* Círculo com o número - Mantido fixo à esquerda */}
+        <div className="flex-shrink-0">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+            {step.step}
           </div>
+        </div>
+
+        {/* Conteúdo de texto ao lado */}
+        <div className="flex-1">
+          <div className="flex flex-col mb-2">
+            <h3 className="text-xl font-bold text-white">{step.title}</h3>
+            <span className="text-blue-400 text-xs font-medium uppercase tracking-wider">
+              {step.duration}
+            </span>
+          </div>
+          <p className="text-neutral-400 text-sm leading-relaxed">
+            {step.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
         </section>
 
         {/* Para Quem Criamos */}
-        <section className="mb-32">
+        <section className="mb-20">
           <div className="text-center mb-16">
-            <span className="text-blue-500 text-sm font-medium uppercase tracking-wider">Nossos Clientes</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Para Quem Criamos</h2>
+            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossos Clientes</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Para quem Criamos</h2>
             <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
               Atendemos diferentes perfis com soluções personalizadas
             </p>
@@ -148,15 +148,15 @@ const Team = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* B2C */}
             <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-blue-500/30">
-              <div className="text-6xl mb-6 text-center">{COMPANY_INFO.clientTypes.b2c.icon}</div>
+              <div className="text-6xl mb-4 text-center">{COMPANY_INFO.clientTypes.b2c.icon}</div>
               <h3 className="text-2xl font-bold text-white mb-2 text-center">{COMPANY_INFO.clientTypes.b2c.title}</h3>
-              <p className="text-blue-400 text-center mb-6 font-medium">{COMPANY_INFO.clientTypes.b2c.subtitle}</p>
+              <p className="text-blue-400 text-center mb-4 font-medium">{COMPANY_INFO.clientTypes.b2c.subtitle}</p>
               <p className="text-neutral-300 text-center mb-8 leading-relaxed">
                 {COMPANY_INFO.clientTypes.b2c.description}
               </p>
               <div className="space-y-3">
                 {COMPANY_INFO.clientTypes.b2c.services.map((service, index) => (
-                  <div key={index} className="flex items-center gap-3">
+                  <div key={index} className="flex items-center justify-center gap-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                     <span className="text-neutral-300">{service}</span>
                   </div>
@@ -166,15 +166,15 @@ const Team = () => {
 
             {/* B2B */}
             <div className="p-8 rounded-2xl bg-gradient-to-br from-purple-900/20 to-pink-900/20 border border-purple-500/30">
-              <div className="text-6xl mb-6 text-center">{COMPANY_INFO.clientTypes.b2b.icon}</div>
+              <div className="text-6xl mb-4 text-center">{COMPANY_INFO.clientTypes.b2b.icon}</div>
               <h3 className="text-2xl font-bold text-white mb-2 text-center">{COMPANY_INFO.clientTypes.b2b.title}</h3>
-              <p className="text-purple-400 text-center mb-6 font-medium">{COMPANY_INFO.clientTypes.b2b.subtitle}</p>
+              <p className="text-purple-400 text-center mb-4 font-medium">{COMPANY_INFO.clientTypes.b2b.subtitle}</p>
               <p className="text-neutral-300 text-center mb-8 leading-relaxed">
                 {COMPANY_INFO.clientTypes.b2b.description}
               </p>
               <div className="space-y-3">
                 {COMPANY_INFO.clientTypes.b2b.services.map((service, index) => (
-                  <div key={index} className="flex items-center gap-3">
+                  <div key={index} className="flex items-center justify-center gap-3">
                     <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                     <span className="text-neutral-300">{service}</span>
                   </div>
@@ -183,26 +183,48 @@ const Team = () => {
             </div>
           </div>
         </section>
-
-        {/* Equipe */}
-        <section className="mb-32">
+        {/* Resultados & Impacto */}
+        <section className="mb-20">
           <div className="text-center mb-16">
-            <span className="text-blue-500 text-sm font-medium uppercase tracking-wider">Nossa Equipe</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Mentes Criativas</h2>
+            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossos Números</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Resultados & Impacto</h2>
             <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-              Profissionais apaixonados por transformar ideias em realidade visual
+              Cada projeto é uma oportunidade de criar algo extraordinário
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {COMPANY_INFO.stats.map((stat, index) => (
+              <div key={index} className="text-center p-8 rounded-2xl bg-neutral-800/30 border border-neutral-700 hover:border-blue-500/50 transition-all duration-300">
+                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+                  {stat.value.includes('+') ? `${counters[index] || 0}+` : stat.value}
+                </div>
+                <h3 className="text-lg font-semibold text-blue-400 mb-2">{stat.label}</h3>
+                <p className="text-neutral-400 text-sm">{stat.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Equipe */}
+        <section className="mb-32">
+          <div className="text-center mb-16">
+            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossa Equipe</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Mentes Criativas</h2>
+            <p className="text-xl text-neutral-400">
+              Profissionais apaixonados por transformar ideias em realidade visual
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-32">
             {TEAM_MEMBERS.map((member, i) => (
               <div key={i} className="group">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-6 relative">
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-4 relative">
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
                     <div className="flex gap-4 text-white mb-4">
-                      <Linkedin size={20} className="hover:text-blue-400 cursor-pointer transition-colors"/>
-                      <Instagram size={20} className="hover:text-pink-400 cursor-pointer transition-colors"/>
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 cursor-pointer transition-colors" ><Linkedin size={20} /></a>
+                      <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 cursor-pointer transition-colors" ><Instagram size={20} /></a>
                     </div>
                     <div className="text-xs text-neutral-300">
                       <p className="mb-2">{member.bio}</p>
@@ -224,28 +246,6 @@ const Team = () => {
           </div>
         </section>
 
-        {/* Resultados & Impacto */}
-        <section className="mb-20">
-          <div className="text-center mb-16">
-            <span className="text-blue-500 text-sm font-medium uppercase tracking-wider">Nossos Números</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Resultados & Impacto</h2>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-              Cada projeto é uma oportunidade de criar algo extraordinário
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {COMPANY_INFO.stats.map((stat, index) => (
-              <div key={index} className="text-center p-8 rounded-2xl bg-neutral-800/30 border border-neutral-700 hover:border-blue-500/50 transition-all duration-300">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {stat.value.includes('+') ? `${counters[index] || 0}+` : stat.value}
-                </div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">{stat.label}</h3>
-                <p className="text-neutral-400 text-sm">{stat.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
     </div>
   );

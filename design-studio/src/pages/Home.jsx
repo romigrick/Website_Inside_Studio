@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useScroll, useTransform } from 'framer-motion';
 import ContactForm from '../components/ContactForm';
 import MasonryGrid from '../components/MasonryGrid';
+import Icone from '../assets/ico.png';
 
 // Componentes e Dados
 import Button from '../components/Button';
@@ -58,7 +59,7 @@ const Home = () => {
         // Configura o intervalo para mudar a palavra a cada 3 segundos
         const interval = setInterval(() => {
             setWordIndex((prevIndex) => (prevIndex + 1) % ROTATING_WORDS.length);
-        }, 3000); 
+        }, 3000);
 
         // Limpa o intervalo
         return () => clearInterval(interval);
@@ -78,13 +79,15 @@ const Home = () => {
         <>
             {/* HERO SECTION */}
             <section className="relative flex flex-col items-center justify-between min-h-screen">
-                <motion.div style={{ y: yHero, opacity: opacityHero }} className="container mx-auto px-6 flex flex-col items-center text-center relative z-20 mb-16">
-                    <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="mb-8 flex items-center gap-2 px-5 py-2 rounded-full border border-white/5 bg-white/[0.02] text-xs font-bold text-neutral-400 uppercase tracking-widest backdrop-blur-md hover:bg-white/[0.05] transition-colors cursor-default">
-                        <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />Disponível para Projetos 2026
-                    </motion.div>
+                <motion.div style={{ y: yHero, opacity: opacityHero }} className="container mx-auto pt-8 px-6 flex flex-col items-center text-center relative z-20 mb-16">
+                    <div className='pb-8'>
+                        <img src={Icone} alt="Icone" className="w-16 h-16" />
+                    </div>
+
+
                     <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8 text-white relative z-10 drop-shadow-2xl">
-                        Created to<br /> 
-                        
+                        Created to<br />
+
                         {/* NOVO CÓDIGO PARA A ROTAÇÃO DE PALAVRAS */}
                         <span className="inline-flex overflow-hidden relative h-32 items-center justify-center">
                             <AnimatePresence mode="popLayout">
@@ -106,7 +109,7 @@ const Home = () => {
                     </motion.h1>
                     <p className="text-xl md:text-2xl text-neutral-400 max-w-3xl mb-12 leading-relaxed font-light relative z-10 drop-shadow-lg">
                         Transformamos ideias em <span className="text-white font-medium">experiências visuais impactantes </span>para elevar o impacto da sua marca a um novo patamar.
-                        
+
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 relative z-30">
                         <Button icon={Mail} onClick={() => navigate('/contato')}>Quero um orçamento</Button>
@@ -124,7 +127,7 @@ const Home = () => {
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen h-64 bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none z-20" /></div>
             </section>
             {/* LOGO TICKER */}
-            <section className="mb-32 z-10 relative bg-black">
+            <section className="mb-20 z-10 relative bg-black">
                 <p className="text-center text-xs font-bold uppercase tracking-widest text-neutral-600 mb-8 pt-8">Empresas que confiaram em nosso trabalho</p>
                 <div className="w-full overflow-hidden pb-10">
                     <div className="flex w-max">
@@ -140,7 +143,7 @@ const Home = () => {
             </section>
 
             {/* FEATURED WORK */}
-            <section id="trabalhos" className="container mx-auto px-6 mb-32 z-10 relative">
+            <section id="trabalhos" className="container mx-auto px-6 mb-20 z-10 relative">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                     <div>
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Trabalhos Recentes</h2>
@@ -159,10 +162,10 @@ const Home = () => {
             </section>
 
             {/* SERVICES */}
-            <section id="expertise" className="container mx-auto px-6 py-20 border-t border-white/[0.05] z-10 relative">
+            <section id="expertise" className="container mx-auto px-6 pt-20 pb-10 border-t border-white/[0.05] z-10 relative">
                 <div className="mb-20 max-w-2xl">
                     <span className="text-blue-500 font-bold tracking-widest text-xs uppercase mb-4 block">Nossa Expertise</span>
-                    <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight">O que nós <br />entregamos.</h2>
+                    <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white tracking-tight">O que nós <br />entregamos.</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -185,7 +188,7 @@ const Home = () => {
             </section>
 
             {/* IMPACT / DNA */}
-            <section id="sobre" className="container mx-auto px-6 py-32 z-10 relative">
+            <section id="sobre" className="container mx-auto px-6 py-20 z-10 relative">
                 <div className="flex flex-col md:flex-row gap-16 items-start">
                     <div className="md:w-1/3 sticky top-32">
                         <span className="text-blue-500 font-bold tracking-widest text-xs uppercase mb-4 block">Our DNA</span>
@@ -220,7 +223,7 @@ const Home = () => {
             </section>
 
             {/* TESTIMONIALS */}
-            <section className="py-32 border-y border-white/[0.05] bg-white/[0.01] relative z-10">
+            <section className="py-20 border-y border-white/[0.05] bg-white/[0.01] relative z-10">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-20">
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">O que dizem sobre nós</h2>
@@ -256,7 +259,7 @@ const Home = () => {
             </section>
 
             {/* FAQ */}
-            <section className="container mx-auto px-6 py-32 z-10 relative max-w-3xl">
+            <section className="container mx-auto px-6 py-20 z-10 relative max-w-3xl">
                 <h2 className="text-3xl font-bold text-white mb-12 text-center">Perguntas Frequentes</h2>
                 <div className="space-y-2">
                     {FAQS.map((faq, i) => (

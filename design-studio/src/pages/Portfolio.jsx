@@ -8,7 +8,9 @@ import MasonryGrid from '../components/MasonryGrid';
 const Portfolio = () => (
   <div className="container mx-auto px-6 min-h-screen relative z-10">
     <div className="mb-16">
-      <h1 className="text-5xl text-center md:text-7xl font-bold mb-6 text-white">Trabalhos <br/>Selecionados</h1>
+                   
+      <span className="text-blue-500 font-bold tracking-widest text-xs uppercase mb-4 block">Nossos Trabalhos</span>
+      <h1 className="text-5xl text-left md:text-7xl font-bold mb-6 text-white">Criados<br></br>para Impactar</h1>
     </div>
 
     <div className="w-full max-w-[1600px] mx-auto px-4 relative z-10 mt-auto">
