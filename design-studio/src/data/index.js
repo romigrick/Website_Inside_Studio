@@ -179,7 +179,7 @@ export const TEAM_MEMBERS = [
     name: "Giseli Matos", 
     role: "WEB Developer", 
     image: imgGi,
-    linkedin: "https://www.linkedin.com/in/giselimatos/",
+    linkedin: "https://www.linkedin.com/in/giseli-matos/",
     instagram: "https://instagram.com/gisamtos_",
     github: "https://github.com/GiseliMatos",
     bio: "Especialista em desenvolvimento web que transforma designs em experiências digitais interativas e funcionais.",
@@ -191,7 +191,7 @@ export const TEAM_MEMBERS = [
     role: "Designer Gráfico & Motion", 
     image: imgGui,
     linkedin: "https://www.linkedin.com/in/guilherme-ferreira-teixeira-625b68227/",
-    instagram: "https://instagram.com/oscowlf",
+    instagram: "https://instagram.com/scowlfdesign",
     bio: "Mestre em motion graphics e design gráfico que dá vida às marcas através de animações impactantes e visuais marcantes.",
     skills: ["Motion Graphics", "After Effects", "Social Media", "Branding"],
     experience: "8+ anos"

@@ -112,7 +112,7 @@ const Home = () => {
 
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 relative z-30">
-                        <Button icon={Mail} onClick={() => navigate('/contato')}>Quero um orçamento</Button>
+                        <Button icon={Mail} onClick={() => navigate('/contact')}>Quero um orçamento</Button>
                         <Button primary icon={ArrowRight} onClick={() => navigate('/portfolio')}>Ver Projetos</Button>
                     </div>
                 </motion.div>
