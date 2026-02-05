@@ -271,7 +271,7 @@ export const PORTFOLIO_FULL = [
   { 
     id: 6, 
     type: "Impressos", 
-    title: "Materiais Impresss", 
+    title: "Materiais Impressos", 
     category: "Material Gráfico", 
     client: "Diversos Clientes",
     year: "2024",

@@ -24,8 +24,8 @@ const App = () => {
     <Router>
       <RouteChangeTracker />
       <ScrollToTop />
-      <div className="min-h-screen bg-black text-white selection:bg-blue-500/30 overflow-x-hidden font-sans">
-        
+      <div className="min-h-screen bg-black text-white selection:bg-blue-500/30 overflow-x-hidden font-sans flex flex-col">
+
         {/* Background Global */}
         <div className="fixed inset-0 z-0 pointer-events-none bg-[#020202]">
           <div className="absolute top-[-10%] left-[-10%] w-[1000px] h-[1000px] bg-blue-900/10 rounded-full blur-[150px]" />
@@ -35,7 +35,7 @@ const App = () => {
 
         <Navbar />
 
-        <main className="relative z-10">
+        <main className="relative z-10 flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
@@ -45,7 +45,7 @@ const App = () => {
             <Route path="/project/:id" element={<ProjectDetails />} /> {/* Nova Rota */}
           </Routes>
         </main>
-        
+
         <Footer />
       </div>
     </Router>
