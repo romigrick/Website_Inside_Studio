@@ -26,7 +26,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${isScrolled ? 'bg-black/80 backdrop-blur-xl border-white/[0.05] py-6' : 'bg-transparent py-8'}`}>
+            <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${isScrolled ? 'bg-black/80 backdrop-blur-xl border-white/[0.05] py-5' : 'bg-transparent py-4'}`}>
                 <div className="container mx-auto px-6">
                     {/* Layout: mobile = flex (logo left, menu button right)
                         desktop = grid 3 cols (logo | center links | button) */}

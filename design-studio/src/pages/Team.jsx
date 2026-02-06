@@ -1,275 +1,224 @@
-
 import React, { useState, useEffect } from 'react';
-import { Linkedin, Instagram, Sparkles, Target, Users, Award, ArrowRight, Building, Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { 
+  Linkedin, Instagram, Mail, Phone, ChevronRight, 
+  Globe, Zap, Shield, Target, Sparkles, Command, Layers 
+} from 'lucide-react';
 import { TEAM_MEMBERS, COMPANY_INFO } from '../data';
 import ContactForm from '../components/ContactForm';
-import { Mail, Phone } from 'lucide-react';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+};
 
 const Team = () => {
-  const [activeValue, setActiveValue] = useState(0);
   const [counters, setCounters] = useState({});
 
   useEffect(() => {
-    // Animate counters
-    const timer = setInterval(() => {
-      setActiveValue(prev => (prev + 1) % COMPANY_INFO.values.length);
-    }, 3000);
-
-    // Animate stats counters
     COMPANY_INFO.stats.forEach((stat, index) => {
       const numericValue = parseInt(stat.value);
       if (!isNaN(numericValue)) {
         let current = 0;
-        const increment = numericValue / 50;
+        const duration = 2000; 
+        const steps = 60;
+        const increment = numericValue / steps;
         const timer = setInterval(() => {
           current += increment;
           if (current >= numericValue) {
             current = numericValue;
             clearInterval(timer);
           }
-          setCounters(prev => ({
-            ...prev,
-            [index]: Math.floor(current)
-          }));
-        }, 50);
+          setCounters(prev => ({ ...prev, [index]: Math.floor(current) }));
+        }, duration / steps);
       }
     });
-
-    return () => clearInterval(timer);
   }, []);
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 relative z-10 mt-auto">
-      {/* Header */}
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Sobre a Inside */}
-        <section className="mb-20">
-          <div className="align-center mx-auto text-center">
-            <div className="mb-4">
-             <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossa História</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
-              Nasceu para<br></br>ser diferente
-            </h1>
-            <p className="text-lg text-neutral-300 max-w-5xl mx-auto leading-relaxed mb-8">
-              {COMPANY_INFO.story.content}
-            </p>
-            <div className="flex items-left justify-center gap-8 text-sm text-neutral-400">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-blue-500" />
-                <span>Fundado em {COMPANY_INFO.story.year}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Target className="w-4 h-4 text-blue-500" />
-                <span>Studio Criativo</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Nossos Valores */}
-        <section className="mb-20">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Nossos Diferenciais</h2>
-            <p className="text-xl text-neutral-400 mx-auto">
-              Valores que guiam cada decisão e definem nossa abordagem única
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {COMPANY_INFO.values.map((value, index) => (
-              <div 
-                key={index}
-                className={`p-8 rounded-2xl border transition-all duration-500 hover:scale-105 ${
-                  activeValue === index 
-                    ? 'border-blue-500 bg-blue-500/10' 
-                    : 'border-neutral-700 bg-neutral-800/30'
-                }`}
-              >
-                <div className="text-4xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Como Trabalhamos */}
-        <section className="mb-20">
-          <div className="text-center mb-16">
-            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossa Metodologia</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Como Trabalhamos</h2>
-            <p className="text-xl text-neutral-400 mx-auto">
-              Um processo comprovado que garante resultados excepcionais
-            </p>
-          </div>
-
-<div className="max-w-6xl mx-auto">
-  {/* Grid de 2 colunas a partir de 'lg' para garantir espaço interno */}
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-    {COMPANY_INFO.process.map((step, index) => (
-      <div 
-        key={index} 
-        className="flex flex-row items-start gap-6 p-6 rounded-2xl bg-neutral-800/30 border border-neutral-700 hover:border-blue-500/50 transition-all duration-300"
-      >
-        {/* Círculo com o número - Mantido fixo à esquerda */}
-        <div className="flex-shrink-0">
-          <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
-            {step.step}
-          </div>
-        </div>
-
-        {/* Conteúdo de texto ao lado */}
-        <div className="flex-1">
-          <div className="flex flex-col mb-2">
-            <h3 className="text-xl font-bold text-white">{step.title}</h3>
-            <span className="text-blue-400 text-xs font-medium uppercase tracking-wider">
-              {step.duration}
-            </span>
-          </div>
-          <p className="text-neutral-400 text-sm leading-relaxed">
-            {step.description}
-          </p>
-        </div>
+    <div className="text-white selection:bg-blue-500/30 overflow-hidden">
+      {/* Background Orbs */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="fixed inset-0 bg-[#050505] -z-10" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[20%] right-[-5%] w-[30%] h-[30%] bg-purple-600/10 blur-[120px] rounded-full" />
       </div>
-    ))}
-  </div>
-</div>
-        </section>
 
-        {/* Para Quem Criamos */}
-        <section className="mb-20">
-          <div className="text-center mb-16">
-            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossos Clientes</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Para quem Criamos</h2>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-              Atendemos diferentes perfis com soluções personalizadas
-            </p>
-          </div>
+      {/* CORREÇÃO DE ALINHAMENTO:
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* B2C */}
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-blue-500/30">
-              <div className="text-6xl mb-4 text-center">{COMPANY_INFO.clientTypes.b2c.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-2 text-center">{COMPANY_INFO.clientTypes.b2c.title}</h3>
-              <p className="text-blue-400 text-center mb-4 font-medium">{COMPANY_INFO.clientTypes.b2c.subtitle}</p>
-              <p className="text-neutral-300 text-center mb-8 leading-relaxed">
-                {COMPANY_INFO.clientTypes.b2c.description}
-              </p>
-              <div className="space-y-3">
-                {COMPANY_INFO.clientTypes.b2c.services.map((service, index) => (
-                  <div key={index} className="flex items-center justify-center gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-neutral-300">{service}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+      */}
+      <div className="w-[75%] max-w-[1600px] mx-auto container mx-auto space-y-32 relative z-10">
+        
+        {/* --- HERO SECTION --- */}
+        <motion.section 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
 
-            {/* B2B */}
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-purple-900/20 to-pink-900/20 border border-purple-500/30">
-              <div className="text-6xl mb-4 text-center">{COMPANY_INFO.clientTypes.b2b.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-2 text-center">{COMPANY_INFO.clientTypes.b2b.title}</h3>
-              <p className="text-purple-400 text-center mb-4 font-medium">{COMPANY_INFO.clientTypes.b2b.subtitle}</p>
-              <p className="text-neutral-300 text-center mb-8 leading-relaxed">
-                {COMPANY_INFO.clientTypes.b2b.description}
-              </p>
-              <div className="space-y-3">
-                {COMPANY_INFO.clientTypes.b2b.services.map((service, index) => (
-                  <div key={index} className="flex items-center justify-center gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span className="text-neutral-300">{service}</span>
-                  </div>
-                ))}
-              </div>
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+            Inside Studio<br /> <span className="italic font-light text-white/70">{COMPANY_INFO.story.title}</span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-neutral-400 max-w-4xl mx-auto leading-relaxed font-light">
+            {COMPANY_INFO.story.content}
+          </p>
+        </motion.section>
+
+        {/* --- VALUES (BENTO GRID STYLE) --- */}
+        <section>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-left">
+            <div className="max-w-xl">
+              <h2 className="text-4xl font-bold tracking-tight mb-4 text-white">DNA Criativo</h2>
+              <p className="text-neutral-500">Pilares que sustentam nossa visão artística e técnica em cada pixel entregue.</p>
             </div>
           </div>
-        </section>
-        {/* Resultados & Impacto */}
-        <section className="mb-20">
-          <div className="text-center mb-16">
-            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossos Números</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Resultados & Impacto</h2>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-              Cada projeto é uma oportunidade de criar algo extraordinário
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {COMPANY_INFO.stats.map((stat, index) => (
-              <div key={index} className="text-center p-8 rounded-2xl bg-neutral-800/30 border border-neutral-700 hover:border-blue-500/50 transition-all duration-300">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {stat.value.includes('+') ? `${counters[index] || 0}+` : stat.value}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {COMPANY_INFO.values.map((value, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUp}
+                initial="initial"
+                whileInView="whileInView"
+                whileHover={{ y: -5 }}
+                className="group p-8 rounded-3xl border border-white/5 bg-gradient-to-b from-white/5 to-transparent hover:border-blue-500/30 transition-all duration-500"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all duration-500">
+                  <Command size={24} strokeWidth={1.5} className="transition-colors" />
                 </div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">{stat.label}</h3>
-                <p className="text-neutral-400 text-sm">{stat.description}</p>
-              </div>
+                <h3 className="text-xl font-semibold mb-3 text-left">{value.title}</h3>
+                <p className="text-neutral-500 text-sm leading-relaxed font-light group-hover:text-neutral-400 transition-colors text-left">
+                  {value.description}
+                </p>
+              </motion.div>
             ))}
           </div>
         </section>
 
-        {/* Equipe */}
-        <section className="mb-32">
+        {/* --- CLIENT TYPES --- */}
+        <section className="py-20 bg-white/[0.02] rounded-[40px] border border-white/5 px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase block">Nossa Equipe</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Mentes Criativas</h2>
-            <p className="text-xl text-neutral-400">
-              Profissionais apaixonados por transformar ideias em realidade visual
-            </p>
+            <h2 className="text-4xl font-bold mb-4 tracking-tighter">Ecossistemas que Transformamos</h2>
+            <p className="text-neutral-500 italic">Soluções modulares para desafios distintos.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            {['b2c', 'b2b'].map((type) => (
+              <motion.div 
+                key={type}
+                whileHover={{ scale: 1.02 }}
+                className="relative overflow-hidden p-10 rounded-[32px] bg-[#0A0A0A] border border-white/10 group"
+              >
+                <div className="absolute top-0 right-0 p-6 opacity-[0.03] text-8xl font-black uppercase select-none group-hover:opacity-[0.07] transition-opacity">
+                  {type}
+                </div>
+                <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-white/10">
+                   {type === 'b2c' ? <Zap size={28} strokeWidth={1.2} /> : <Target size={28} strokeWidth={1.2} />}
+                </div>
+                <h3 className="text-2xl font-bold mb-2 uppercase tracking-tight text-white group-hover:text-blue-500 transition-colors text-left">
+                  {COMPANY_INFO.clientTypes[type].title}
+                </h3>
+                <p className="text-neutral-400 mb-8 font-light italic text-sm text-left">
+                  {COMPANY_INFO.clientTypes[type].description}
+                </p>
+                <ul className="space-y-4">
+                  {COMPANY_INFO.clientTypes[type].services.map((s, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-neutral-300 font-light">
+                      <ChevronRight size={14} className="text-blue-500" /> {s}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* --- STATS --- */}
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-12 border-y border-white/5 py-16">
+          {COMPANY_INFO.stats.map((stat, index) => (
+            <div key={index} className="text-center group">
+              <div className="text-5xl font-light mb-2 tracking-tighter group-hover:text-blue-500 transition-colors">
+                {stat.value.includes('+') ? `${counters[index] || 0}+` : stat.value}
+              </div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold">{stat.label}</div>
+            </div>
+          ))}
+        </section>
+
+        {/* --- TEAM GRID --- */}
+        <section>
+          <div className="mb-16 text-left">
+            <h2 className="text-5xl font-bold tracking-tighter mb-4">Mentes por trás<br/>da execução</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {TEAM_MEMBERS.map((member, i) => (
-              <div key={i} className="group">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-4 relative">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-                    <div className="flex gap-4 text-white mb-4">
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 cursor-pointer transition-colors" ><Linkedin size={20} /></a>
-                      <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 cursor-pointer transition-colors" ><Instagram size={20} /></a>
-                    </div>
-                    <div className="text-xs text-neutral-300">
-                      <p className="mb-2">{member.bio}</p>
-                      <div className="flex flex-wrap gap-1">
-                        {member.skills.map((skill, skillIndex) => (
-                          <span key={skillIndex} className="px-2 py-1 bg-white/20 rounded text-xs">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+              <motion.div 
+                key={i} 
+                variants={fadeInUp}
+                initial="initial"
+                whileInView="whileInView"
+                className="group relative"
+              >
+                <div className="aspect-[4/5] rounded-[2rem] overflow-hidden bg-neutral-900 mb-6 relative border border-white/5">
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                  
+                  <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="flex gap-3">
+                      <a href={member.linkedin} className="p-2.5 bg-white/10 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-all duration-300"><Linkedin size={18} strokeWidth={1.5} /></a>
+                      <a href={member.instagram} className="p-2.5 bg-white/10 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-all duration-300"><Instagram size={18} strokeWidth={1.5} /></a>
                     </div>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                <p className="text-blue-500 text-sm font-medium uppercase tracking-wider mb-2">{member.role}</p>
-                <p className="text-neutral-400 text-sm">{member.experience} de experiência</p>
-              </div>
+                
+                <h3 className="text-2xl font-semibold tracking-tight text-left">{member.name}</h3>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="w-4 h-[1px] bg-blue-500"></span>
+                  <p className="text-blue-500 text-[10px] font-bold uppercase tracking-widest">{member.role}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </section>
-         <section className="container mx-auto px-6 z-10 relative">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    {/* Texto Lateral */}
-                    <div className="flex flex-col justify-center">
-                        <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white tracking-tighter">Tem um projeto?</h2>
-                        <p className="text-xl text-neutral-400 mb-12">Estamos prontos para ouvir sobre o seu projeto. Preencha o formulário ou nos envie um e-mail direto.</p>
 
-                        <div className="space-y-6">
-                            <div className="flex items-center gap-4 text-white">
-                                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"><Mail size={20} /></div>
-                                <div><p className="text-sm text-neutral-500">Email</p><p className="font-medium">contato@insidestudio.com.br</p></div>
-                            </div>
-                            <div className="flex items-center gap-4 text-white">
-                                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"><Phone size={20} /></div>
-                                <div><p className="text-sm text-neutral-500">Telefone</p><p className="font-medium">+55 (42) 9 9814.1401</p></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Formulário */}
-                    <ContactForm />
+        {/* --- CONTACT SECTION --- */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center bg-blue-600/5 rounded-[50px] p-12 md:p-20 border border-blue-500/10 relative overflow-hidden">
+          <div className="relative z-10 text-left">
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-white leading-tight">Vamos tirar<br/>do papel?</h2>
+            <div className="space-y-8">
+              <div className="flex items-center gap-6 group">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+                  <Mail size={22} strokeWidth={1.2} />
                 </div>
-            </section>
+                <div>
+                  <p className="text-[10px] text-neutral-500 uppercase font-bold tracking-[0.2em] mb-1">E-mail</p>
+                  <p className="text-lg font-light">contato@insidestudio.com.br</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 group">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+                  <Phone size={22} strokeWidth={1.2} />
+                </div>
+                <div>
+                  <p className="text-[10px] text-neutral-500 uppercase font-bold tracking-[0.2em] mb-1">WhatsApp</p>
+                  <p className="text-lg font-light">+55 (42) 9 9814.1401</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative z-10">
+            <ContactForm />
+          </div>
+        </section>
 
       </div>
     </div>

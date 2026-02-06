@@ -143,6 +143,14 @@ import Portfolio16 from '../portfolio/portfolio (16).png';
 import Portfolio17 from '../portfolio/portfolio (17).png';
 import Portfolio18 from '../portfolio/portfolio (18).png';
 
+import chillPassCover from '../portfolio/Chillpass/cover.png';
+import bianchiCover from '../portfolio/Bianchi/cover.png';
+
+
+//BF ENergia
+ import bfDepois from '../portfolio/BF Energia/imagem_2025-03-11_222700300.png';
+ import bfAntes from '../portfolio/BF Energia/imagem_2025-03-11_223555213.png';
+
 export const CLIENTS = ["BF ENERGIA", "SHARK SMART", "EL TORO", "RISÔ BISTRO", "DOMINAR MOTOS", "GRUPO BIANCHI"];
 
 export const HERO_GRID_ITEMS = [
@@ -163,6 +171,7 @@ export const HERO_GRID_ITEMS = [
 import imgRick from '../assets/rick.jpeg';
 import imgGui from '../assets/gui.png';
 import imgGi from '../assets/gi.png';
+import { image } from 'framer-motion/client';
 export const TEAM_MEMBERS = [
   { 
     name: "Richardson Romig", 
@@ -197,7 +206,8 @@ export const TEAM_MEMBERS = [
     experience: "8+ anos"
   },
 ];
-
+import mariaMatheus from '../portfolio/Maria e Matheus/cover.png';
+import ppneusCover from '../portfolio/PPNEUS/cover.png';
 // PORTFOLIO COMPLETO - ORGANIZADO POR PASTA/PROJETO
 export const PORTFOLIO_FULL = [
   // ==========================================
@@ -207,72 +217,59 @@ export const PORTFOLIO_FULL = [
     id: 1, 
     type: "Social Media", 
     title: "Bianchi Distribuidora", 
-    category: "Social Media", 
+    category: "Redes Sociais", 
     client: "Bianchi Distribuidora",
     year: "2024",
     description: "Desenvolvimento completo de artes para Instagram e Facebook. Criamos um sistema visual moderno e confiável que transmite profissionalismo e qualidade na distribuição de peças automotivas.",
     image: Bianchi1,
     gallery: [Bianchi1, Bianchi2, Bianchi3, Bianchi4, Bianchi5, Bianchi6],
-    tags: ["Design", "Social", "Marketing", "Key Visual"]
+    tags: ["Design", "Social", "Marketing", "Key Visual"],
+    span: "md:col-span-2 md:row-span-2" // Card destaque no Bento
   },
-
-  // ==========================================
-  // CHILLPASS
-  // ==========================================
   { 
     id: 2, 
     type: "Social Media", 
     title: "Chillpass", 
-    category: "Social Media", 
+    category: "Redes Sociais", 
     client: "Chillpass",
     year: "2024",
     description: "Identidade visual e estratégia de conteúdo para plataforma de relacionamento. Focamos em criar uma estética jovem e dinâmica que conecta pessoas de forma descontraída e moderna.",
     image: Chillpass1,
     gallery: [Chillpass1],
-    tags: ["Social Media", "Identidade Visual", "UI Elements"]
+    tags: ["Social Media", "Identidade Visual", "UI Elements"],
+    span: "md:col-span-1 md:row-span-1"
   },
-
-  // ==========================================
-  // GICRED
-  // ==========================================
   { 
     id: 3, 
     type: "Social Media", 
     title: "Gicred", 
-    category: "Identidade Visual", 
+    category: "Redes Sociais", 
     client: "Gicred",
     year: "2025",
     description: "Revitalização completa das redes sociais para empresa de consultoria e crédito. Desenvolvemos uma identidade que transmite confiança e solidez no mercado financeiro, com elementos visuais sofisticados e profissionais.",
     image: Gicred1,
     gallery: [Gicred1, Gicred2, Gicred3, Gicred4, Gicred5, Gicred6, Gicred7, Gicred8, Gicred9],
-    tags: ["Key Visual", "Social Media", "Papelaria", "Design"]
+    tags: ["Key Visual", "Social Media", "Papelaria", "Design"],
+    span: "md:col-span-1 md:row-span-2"
   },
-
-  // ==========================================
-  // GIGA4
-  // ==========================================
   { 
     id: 4, 
     type: "Social Media", 
     title: "Giga4", 
-    category: "Social Media", 
+    category: "Redes Sociais", 
     client: "Giga4",
     year: "2023",
     description: "Desenvolvimento de peças de rede social para a Giga4, uma empresa de empreendimentos imobiliários.",
     image: Giga41,
     gallery: [Giga41, Giga42, Giga43, Giga44],
-    tags: ["Key Visual", "Social Media", "Design"]
+    tags: ["Key Visual", "Social Media", "Design"],
+    span: "md:col-span-2 md:row-span-1"
   },
-
-  
-  // ==========================================
-  // IMPRESSOS
-  // ==========================================
   { 
     id: 6, 
     type: "Impressos", 
     title: "Materiais Impressos", 
-    category: "Material Gráfico", 
+    category: "Materiais Impressos", 
     client: "Diversos Clientes",
     year: "2024",
     description: "Desenvolvimento de materiais impressos diversos incluindo flyers, folders e mockups. Cada peça foi cuidadosamente projetada para máxima eficácia visual e impacto no ponto de venda.",
@@ -280,218 +277,244 @@ export const PORTFOLIO_FULL = [
     gallery: [Impressos11, Impressos1, Impressos2, ImpressosMockup, ImpressosV3],
     tags: ["Flyers", "Folders", "Mockups", "Material Impresso"]
   },
-  
-  // ==========================================
-  // MASAMI MOTORS
-  // ==========================================
-  
-  // ==========================================
-  // ORLA
-  // ==========================================
   { 
     id: 8, 
     type: "Key Visual", 
     title: "Orla46", 
-    category: "Social Media", 
+    category: "Redes Sociais", 
     client: "Orla46",
     year: "2025",
     description: "Criação da identidade de campanha do Orla46, um bar que segue a temática de praiana.",
     image: Orla1,
     gallery: [Orla1, Orla2, Orla3, Orla4, Orla5, OrlaCarrossel1, OrlaCarrossel2, OrlaCarrossel3, OrlaCarrossel4, OrlaCarrossel5, OrlaCarrossel6, OrlaCarrossel7],
-    tags: ["Social Media", "Key Visual", "Design", "Marketing"]
+    tags: ["Social Media", "Key Visual", "Design", "Marketing"],
+    span: "md:col-span-1 md:row-span-1"
   },
-  // ==========================================
-  // GORDÃO
-  // ==========================================
   { 
     id: 9, 
     type: "Social Media", 
     title: "Gordão Lanches", 
-    category: "Social Media", 
+    category: "Redes Sociais", 
     client: "Gordão",
     year: "2025",
     description: "Desenvolvemos conteúdo visual impactante seguindo a campanha vigente da marca, que usava elementos piratas para trazer a ideia de que cada lanche era um tesouro.",
     image: Gordao1,
     gallery: [Gordao1, Gordao2, Gordao3, Gordao4],
-    tags: ["Social Media", "Key Visual", "Animação", "Storytelling"]
+    tags: ["Social Media", "Key Visual", "Animação", "Storytelling"],
+    span: "md:col-span-2 md:row-span-2"
   },
-  
   { 
     id: 7, 
     type: "Key Visual", 
     title: "Masami Motors", 
-    category: "Identidade Visual", 
+    category: "Redes Sociais", 
     client: "Masami Motors",
     year: "2024",
     description: "Identidade visual completa para concessionária de veículos. Criamos um sistema visual que reflete qualidade, confiabilidade e modernidade no setor automotivo.",
     image: Masami1,
     gallery: [Masami1, Masami2, Masami3, Masami4, Masami5],
-    tags: ["Logo", "Identidade Visual", "Sinalização", "Material Promocional"]
+    tags: ["Logo", "Identidade Visual", "Sinalização", "Material Promocional"],
+    span: "md:col-span-1 md:row-span-1"
   },
-  // ==========================================
-  // PANTER MÁQUINAS
+
   { 
     id: 5, 
-    type: "Social Media", 
-    title: "Panter Máquinas", 
-    category: "Key Visual", 
-    client: "Panter Máquinas",
-    year: "2025",
-    description: "Criação de peças harmônicas(3 posts que formam uma linha) para o feed do instagram.",
-    image: Panter1,
-    gallery: [Panter1],
-    tags: ["Identidade Industrial", "Equipamentos", "Catálogo", "Sinalização"]
-  },
-  // ==========================================
-
-  // ==========================================
-  // PATÔ LANCHERIA
-  // ==========================================
-  { 
-    id: 10, 
-    type: "Social Media", 
-    title: "Patô Lancheria", 
-    category: "Social Media", 
-    client: "Patô Lancheria",
-    year: "2024",
-    description: "Identidade visual completa para lancheria, combinando elementos tradicionais com uma abordagem moderna. Criamos uma marca acolhedora que convida à experiência gastronômica.",
-    image: Pato1,
-    gallery: [Pato1, Pato2, Pato3, Pato4, Pato5, Pato6, Pato7],
-    tags: ["Logo", "Cardápio", "Ambiente", "Material Promocional", "Vídeo"]
-  },
-
-  // ==========================================
-  // PATOBOTS
-  // ==========================================
-  { 
-    id: 11, 
-    type: "tech", 
-    title: "Patobots", 
-    category: "Identidade Tech", 
-    client: "Patobots",
-    year: "2024",
-    description: "Desenvolvimento de identidade visual para startup de tecnologia focada em automação. Criamos um visual inovador que representa inteligência artificial e automação de forma acessível.",
-    image: Patobots1,
-    gallery: [Patobots1, Patobots2, Patobots3, Patobots4, Patobots5, Patobots6, Patobots7, Patobots8, Patobots9],
-    tags: ["Logo", "UI Elements", "Material Digital", "Aplicações Tech"]
-  },
-
-  // ==========================================
-  // PPNEUS
-  // ==========================================
-  { 
-    id: 12, 
-    type: "automotive", 
-    title: "PP Neus", 
-    category: "Identidade Automotiva", 
-    client: "PP Neus",
-    year: "2024",
-    description: "Identidade visual para empresa especializada em pneus. Desenvolvemos uma marca que transmite confiança e qualidade no setor automotivo.",
-    image: PPneus1,
-    gallery: [PPneus1, PPneus2, PPneus3],
-    tags: ["Logo", "Sinalização", "Material Promocional", "Catálogo"]
-  },
-
-  // ==========================================
-  // REGELLI
-  // ==========================================
-  { 
-    id: 13, 
-    type: "branding", 
-    title: "Regelli", 
-    category: "Identidade Visual", 
-    client: "Regelli",
-    year: "2024",
-    description: "Desenvolvimento de marca para empresa do setor de serviços. Criamos uma identidade elegante e profissional que reflete a qualidade dos serviços oferecidos.",
-    image: Regelli1,
-    gallery: [Regelli1, Regelli2],
-    tags: ["Logo", "Papelaria", "Aplicações Corporativas"]
-  },
-
-  // ==========================================
-  // RODEIO
-  // ==========================================
-  { 
-    id: 14, 
-    type: "event", 
-    title: "Rodeio", 
-    category: "Identidade de Evento", 
-    client: "Rodeio",
-    year: "2024",
-    description: "Identidade visual para evento country e rodeio. Criamos um visual que captura a essência do evento, combinando elementos tradicionais com uma estética moderna e impactante.",
-    image: Rodeio1,
-    gallery: [Rodeio1, Rodeio2, Rodeio3],
-    tags: ["Identidade de Evento", "Material Promocional", "Sinalização"]
-  },
-
-  // ==========================================
-  // SOLLO SUL
-  // ==========================================
-  { 
-    id: 15, 
-    type: "agricultural", 
-    title: "Sollo Sul", 
-    category: "Identidade Agrícola", 
-    client: "Sollo Sul",
-    year: "2024",
-    description: "Identidade visual para empresa do setor agrícola. Desenvolvemos uma marca que representa inovação e sustentabilidade no agronegócio.",
-    image: SolloSul1,
-    gallery: [SolloSul1, SolloSul2, SolloSul3, SolloSul4],
-    tags: ["Logo", "Material Técnico", "Identidade Rural", "Aplicações Digitais"]
-  },
-
-  // ==========================================
-  // SOLUS PEÇAS AGRÍCOLAS
-  // ==========================================
-  { 
-    id: 16, 
     type: "agricultural", 
     title: "Solus Peças Agrícolas", 
-    category: "Identidade Industrial Rural", 
+    category: "Redes Sociais", 
     client: "Solus",
     year: "2024",
     description: "Identidade completa para empresa especializada em peças agrícolas. Criamos uma marca robusta e confiável que atende às necessidades do setor rural.",
     image: Solus1,
     gallery: [Solus1, Solus2, Solus3, Solus4],
-    tags: ["Logo", "Catálogo", "Identidade Industrial", "Material Técnico"]
+    tags: ["Logo", "Catálogo", "Identidade Industrial", "Material Técnico"],
+    span: "md:col-span-2 md:row-span-1"
   },
 
-  // ==========================================
-  // SULSHIBUCO
-  // ==========================================
+
+  { 
+    id: 10, 
+    type: "Social Media", 
+    title: "Patô Lancheria", 
+    category: "Redes Sociais", 
+    client: "Patô Lancheria",
+    year: "2024",
+    description: "Identidade visual completa para lancheria, combinando elementos tradicionais com uma abordagem moderna. Criamos uma marca acolhedora que convida à experiência gastronômica.",
+    image: Pato1,
+    gallery: [Pato1, Pato2, Pato3, Pato4, Pato5, Pato6, Pato7],
+    tags: ["Logo", "Cardápio", "Ambiente", "Material Promocional", "Vídeo"],
+    span: "md:col-span-2 md:row-span-1"
+  },
+  { 
+    id: 11, 
+    type: "tech", 
+    title: "Patobots", 
+    category: "Redes Sociais", 
+    client: "Patobots",
+    year: "2024",
+    description: "Desenvolvimento de identidade visual para startup de tecnologia focada em automação. Criamos um visual inovador que representa inteligência artificial e automação de forma acessível.",
+    image: Patobots1,
+    gallery: [Patobots1, Patobots2, Patobots3, Patobots4, Patobots5, Patobots6, Patobots7, Patobots8, Patobots9],
+    tags: ["Logo", "UI Elements", "Material Digital", "Aplicações Tech"],
+    span: "md:col-span-1 md:row-span-2"
+  },
+  { 
+    id: 12, 
+    type: "automotive", 
+    title: "PP Neus", 
+    category: "Redes Sociais", 
+    client: "PP Neus",
+    year: "2024",
+    description: "Identidade visual para empresa especializada em pneus. Desenvolvemos uma marca que transmite confiança e qualidade no setor automotivo.",
+    image: PPneus1,
+    gallery: [PPneus1, PPneus2, PPneus3],
+    tags: ["Logo", "Sinalização", "Material Promocional", "Catálogo"],
+    span: "md:col-span-1 md:row-span-1"
+  },
+  { 
+    id: 13, 
+    type: "branding", 
+    title: "Regelli", 
+    category: "Redes Sociais", 
+    client: "Regelli",
+    year: "2024",
+    description: "Desenvolvimento de marca para empresa do setor de serviços. Criamos uma identidade elegante e profissional que reflete a qualidade dos serviços oferecidos.",
+    image: Regelli1,
+    gallery: [Regelli1, Regelli2],
+    tags: ["Logo", "Papelaria", "Aplicações Corporativas"],
+    span: "md:col-span-1 md:row-span-1"
+  },
+  { 
+    id: 14, 
+    type: "evento", 
+    title: "El Toro Rodeio Country Show", 
+    category: "Identidade Visual", 
+    client: "Rodeio",
+    year: "2024",
+    behanceUrl: "https://www.behance.net/embed/project/230952555?ilo0=1",
+    description: "Identidade visual para evento country e rodeio. Criamos um visual que captura a essência do evento, combinando elementos tradicionais com uma estética moderna e impactante.",
+    image: Rodeio1,
+    gallery: [Rodeio1, Rodeio2, Rodeio3],
+    tags: ["Identidade de Evento", "Material Promocional", "Sinalização"]
+  },
   { 
     id: 17, 
-    type: "industrial", 
+    type: "Posts", 
     title: "Sulshibuco", 
-    category: "Identidade Industrial", 
+    category: "Redes Sociais", 
     client: "Sulshibuco",
     year: "2024",
     description: "Desenvolvimento de identidade para empresa industrial. Criamos um sistema visual que comunica excelência técnica e profissionalismo industrial.",
     image: Sulshibuco1,
     gallery: [Sulshibuco1, Sulshibuco2],
-    tags: ["Logo", "Material Corporativo", "Identidade Industrial"]
+    tags: ["Logo", "Material Corporativo", "Identidade Industrial"],
+    span: "md:col-span-1 md:row-span-1"
+  },
+  { 
+    id: 15, 
+    type: "agricultural", 
+    title: "Sollo Sul", 
+    category: "Redes Sociais", 
+    client: "Sollo Sul",
+    year: "2024",
+    description: "Identidade visual para empresa do setor agrícola. Desenvolvemos uma marca que representa inovação e sustentabilidade no agronegócio.",
+    image: SolloSul1,
+    gallery: [SolloSul1, SolloSul2, SolloSul3, SolloSul4],
+    tags: ["Logo", "Material Técnico", "Identidade Rural", "Aplicações Digitais"],
+    span: "md:col-span-1 md:row-span-1"
+  },
+    { 
+    id: 16, 
+    type: "Social Media", 
+    title: "Panter Máquinas", 
+    category: "Redes Sociais", 
+    client: "Panter Máquinas",
+    year: "2025",
+    description: "Criação de peças harmônicas(3 posts que formam uma linha) para o feed do instagram.",
+    image: Panter1,
+    gallery: [Panter1],
+    tags: ["Identidade Industrial", "Equipamentos", "Catálogo", "Sinalização"],
+    span: "md:col-span-1 md:row-span-1"
   },
 
-
-  // ==========================================
-  // UTFPR
-  // ==========================================
   { 
     id: 18, 
     type: "educational", 
     title: "UTFPR", 
-    category: "Identidade Educacional", 
+    category: "Redes Sociais", 
     client: "UTFPR",
     year: "2024",
     description: "Materiais visuais e campanhas institucionais para a Universidade Tecnológica Federal do Paraná. Desenvolvemos conteúdo que comunica excelência acadêmica e inovação tecnológica.",
     image: UTF1,
     gallery: [UTF1, UTF2, UTF3, UTF4, UTF5, UTF6],
-    tags: ["Material Institucional", "Campanhas", "Identidade Educacional", "Aplicações Acadêmicas"]
+    tags: ["Material Institucional", "Campanhas", "Identidade Educacional", "Aplicações Acadêmicas"],
+    span: "md:col-span-1 md:row-span-1"
+  },
+
+  { 
+    id: 19, 
+    type: "Energia Solar", 
+    title: "Website BF Energia", 
+    category: "Sites", 
+    client: "BF Energia Solar",
+    year: "2024",
+    description: "Website desenvolvido em WordPress para empresa de energia solar. O site apresenta um design moderno e responsivo, com foco em conversão e experiência do usuário, destacando os serviços e diferenciais da empresa.",
+    liveUrl: "https://bfenergia.com.br",
+    gallery: [bfAntes, bfDepois],
+    image: bfDepois
+  },
+
+  {id: 20,
+    type: "Cobertura de Casamento",
+    title: "Casamento Maria & Matheus",
+    category: "Videos",
+    client: "Particular",
+    year: "2024",
+    videoUrl: "https://www.youtube.com/embed/NSbbzNvTMK4?si=vM1u0zJsfTkEbHU5",
+    description: "Vídeo de cobertura completo do casamento de Maria & Matheus, capturando os momentos mais emocionantes e especiais do grande dia com uma edição cinematográfica.",
+    image: mariaMatheus
+   
+  },
+
+  {
+    id:21,
+    title: "Inauguração PPNEUS Autocenter",
+    category: "Videos",
+    client: "PPNEUS",
+    year: "2024",
+    description: "Vídeo de cobertura da inauguração do PPNEUS Autocenter, destacando a estrutura e serviços oferecidos pela nova filial da PPNEUS.",
+    videoUrl: "https://www.youtube.com/embed/sgbyRNwMtE4",
+    image: ppneusCover
+  },
+  {
+    id:22,
+    title:"Motion Chill Pass Places",
+    category: "Videos",
+    client: "Chillpass",
+    year: "2025",
+    description: "Video motion apresentando a nova funcionalidade Places do aplicativo Chill Pass, destacando os benefícios e a experiência do usuário de forma dinâmica e envolvente.",
+    videoUrl: "https://www.youtube.com/embed/oKbV-2JQKLY",
+    image: chillPassCover
+  },
+  {
+    id: 23,
+    title: "Telão Bianchi",
+    category: "Videos",
+    client: "Bianchi",
+    year: "2024",
+    description: "Video motion para um telão de eventos, focando em mostrar a presença da Distribuidora em todo o Sul do Brasil.",
+  
+    videoUrl:"https://www.youtube.com/embed/mXL9v22m2oc",
+    image: bianchiCover
   }
+
 ]
 
 export const PORTFOLIO_HOME = PORTFOLIO_FULL.filter(projeto => 
-    [1, 6, 14].includes(projeto.id) // <--- Lista de IDs definida diretamente aqui
+    [1, 2, 14].includes(projeto.id) 
+);
+export const PORTFOLIO_HERO = PORTFOLIO_FULL.filter(projeto => 
+    [2, 10, 17, 5, 14, 6].includes(projeto.id) 
 );
 export const SERVICES = [
   { title: "Desenvolvimento de Sites", desc: "Criação de Sites e Landing Pages responsivas e impactantes usando as melhores tecnologias do mercado", icon: MousePointer2 },

@@ -1,198 +1,442 @@
 import React, { useState, useEffect, useRef } from 'react';
+
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, User, Tag, ChevronLeft, ChevronRight } from 'lucide-react';
+
+import {
+
+  ArrowLeft, Calendar, User, Tag, ChevronLeft,
+
+  ChevronRight, ExternalLink, Sparkles, Monitor, Mail, Phone
+
+} from 'lucide-react';
+
 import { motion, AnimatePresence } from 'framer-motion';
+
 import { PORTFOLIO_FULL } from '../data';
 
+import ContactForm from '../components/ContactForm';
+
+
+
 const ProjectDetails = () => {
+
   const { id } = useParams();
+
   const navigate = useNavigate();
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   const [isLandscape, setIsLandscape] = useState(false);
 
   const imgRef = useRef(null);
 
-  const projectId = id ? parseInt(id) : 0;
-  const project = PORTFOLIO_FULL.find(p => p.id === projectId);
-  const galleryImages = project?.gallery || (project?.image ? [project.image] : []);
 
-  const checkDimensions = () => {
-    if (imgRef.current) {
-      const { naturalWidth, naturalHeight } = imgRef.current;
-      if (naturalWidth > 0) {
-        setIsLandscape(naturalWidth > naturalHeight);
-      }
-    }
-  };
+
+  const project = PORTFOLIO_FULL.find(p => p.id === parseInt(id));
+
+  const gallery = project?.gallery || (project?.image ? [project.image] : []);
+
+  const isWebsite = project?.category === "Sites";
+  const isBehance = !!project?.behanceUrl;
+
+
 
   useEffect(() => {
-    if (!project) {
-      navigate('/portfolio');
-      return;
-    }
+
+    if (!project) { navigate('/portfolio'); return; }
+
     window.scrollTo(0, 0);
 
-    if (imgRef.current && imgRef.current.complete) {
-      checkDimensions();
+  }, [id, project, navigate]);
+
+
+
+  const checkDimensions = () => {
+
+    if (imgRef.current) {
+
+      setIsLandscape(imgRef.current.naturalWidth > imgRef.current.naturalHeight);
+
     }
-  }, [id, project, navigate, currentImageIndex]);
+
+  };
+
+
 
   if (!project) return null;
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-  };
 
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
-  };
 
   return (
-    <div className="container mx-auto px-6 min-h-screen relative z-10 pb-20">
+
+    <div className="relative z-10 w-[75%] max-w-[1600px] mx-auto pb-20">
+
+      {/* Botão Voltar */}
 
       <button
+
         onClick={() => navigate('/portfolio')}
-        className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-12 group"
+
+        className="flex items-center gap-3 text-neutral-500 hover:text-white transition-all mb-16 group text-[11px] font-bold uppercase tracking-widest"
+
       >
-        <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+
+        <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+
         Voltar para Portfólio
+
       </button>
 
-      <div className={`grid gap-16 items-start transition-all duration-700 ${isLandscape ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2'}`}>
 
-        {/* Container da Galeria */}
-        <div className={`flex flex-col gap-6 ${isLandscape ? 'w-full max-w-6xl mx-auto' : 'lg:sticky lg:top-32'}`}>
 
-          {/* CORREÇÃO NO CONTAINER DA IMAGEM:
-             - Se Landscape: 'w-full h-auto' (Mantém o comportamento correto).
-             - Se Vertical: Mudamos para 'w-full h-[70vh]'. Isso define uma altura máxima de 70% da tela, impedindo que a imagem fique gigante.
-          */}
-          <div className={`relative transition-all duration-500 mx-auto
-  ${isLandscape
-              ? 'w-full h-auto rounded-3xl overflow-hidden border border-white/10 bg-neutral-900 shadow-2xl shadow-black/50'
-              : 'w-fit h-[70vh] bg-transparent' /* Remove o fundo e borda se for vertical */
-            }
-`}>
-            <AnimatePresence mode='wait'>
-              <motion.img
-                key={currentImageIndex}
-                ref={imgRef}
-                src={galleryImages[currentImageIndex]}
-                alt={`Slide ${currentImageIndex + 1}`}
-                onLoad={checkDimensions}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                /* CORREÇÃO: 
-                   Se for vertical, a borda e o arredondamento vão na imagem. 
-                   Usamos 'h-full w-auto' para ela respeitar os 70vh sem esticar.
-                */
-                className={`transition-all duration-500
-        ${isLandscape
-                    ? 'relative w-full h-auto z-10'
-                    : 'relative h-full w-auto z-10 rounded-3xl border border-white/10 shadow-2xl shadow-black/50'
-                  }
-      `}
-              />
-            </AnimatePresence>
+      {/* Grid Principal: Agora vira 1 coluna se for Behance, Vídeo, Site ou Landscape */}
+      <div className={`grid gap-12 lg:gap-20 ${isBehance || isVideo || isWebsite || isLandscape ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2'} items-start`}>
 
-            {/* Setas de Navegação - Agora elas ficam coladas na imagem mesmo se for vertical */}
-            {galleryImages.length > 1 && (
-              <>
-                <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover:opacity-100 transform hover:scale-110 z-20">
-                  <ChevronLeft size={24} />
-                </button>
-                <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover:opacity-100 transform hover:scale-110 z-20">
-                  <ChevronRight size={24} />
-                </button>
-              </>
-            )}
+
+
+        {/* --- CONTAINER DE MÍDIA (Ajustado para Iframe com Scroll Interno) --- */}
+
+        <div className="space-y-8">
+
+          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 bg-[#080808] shadow-2xl transition-all duration-700">
+
+            {/* PRIORIDADE: BEHANCE (LARGURA TOTAL) */}
+            {isBehance ? (
+  <div className="relative w-full h-[800px] bg-[#050505] rounded-[2.5rem] overflow-hidden border border-white/10">
+    <iframe 
+      src={project.behanceUrl} 
+      title="Behance Showcase"
+      className="w-full h-full border-none"
+      allowFullScreen 
+      loading="lazy"
+      /* scrolling="yes" é fundamental para o conteúdo longo carregar */
+      scrolling="yes" 
+      style={{ 
+        width: '100%', 
+        height: '100%', 
+        overflow: 'auto',
+        display: 'block' 
+      }}
+      /* Atributos necessários para conformidade com políticas do Behance */
+      allow="clipboard-write"
+      referrerPolicy="strict-origin-when-cross-origin"
+    />
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400 pointer-events-none">
+                   Role para explorar o projeto completo
+                </div>
+              </div>
+            ) :project.category === 'Videos' && project.videoUrl ? (
+
+              /* --- MODO PLAYER DE VÍDEO --- */
+
+              <div className="w-full aspect-video bg-black">
+
+                <iframe
+
+                  src={project.videoUrl}
+
+                  title={project.title}
+
+                  className="w-full h-full border-none"
+
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+
+                  allowFullScreen
+
+                />
+
+              </div>
+
+            ) : isWebsite && project.liveUrl ? (
+
+                /* --- MODO IFRAME (SITES) --- */
+                <div className="relative group w-[full]">
+                  {/* Header Estilizado de "Browser" */}
+                  <div className="bg-[#111] border-b border-white/10 p-4 flex items-center justify-between">
+                    <div className="flex gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+                    </div>
+                    <div className="bg-black/40 px-6 py-1.5 rounded-full text-[10px] text-neutral-500 font-mono truncate max-w-[400px] border border-white/5">
+                      {project.liveUrl}
+                    </div>
+                    <div className="w-10" /> {/* Spacer para equilibrar o layout */}
+                  </div>
+
+
+
+                  {/* Iframe com Altura Fixa e Scroll Interno */}
+
+                  <div className="relative w-[full] h-[600px] bg-white overflow-hidden">
+
+                    <iframe
+
+                      src={project.liveUrl}
+
+                      title={project.title}
+
+                      className="w-full h-full border-none"
+
+                      loading="lazy"
+
+                      style={{
+
+                        height: '600px',
+
+                        width: '100%',
+
+                        overflowY: 'auto'
+
+                      }}
+
+                    />
+
+
+
+                    {/* Sombra interna sutil para indicar que há mais conteúdo abaixo */}
+
+                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+
+                  </div>
+
+                </div>
+
+              ) : (
+
+                /* --- MODO GALERIA (IMAGENS) --- */
+
+                <div className="relative group flex justify-center bg-transparent">
+
+                  <AnimatePresence mode='wait'>
+
+                    <motion.img
+
+                      key={currentImageIndex}
+
+                      ref={imgRef}
+
+                      src={gallery[currentImageIndex]}
+
+                      onLoad={checkDimensions}
+
+                      initial={{ opacity: 0 }}
+
+                      animate={{ opacity: 1 }}
+
+                      exit={{ opacity: 0 }}
+
+                      className={`${isLandscape ? 'w-[70%] h-auto' : 'h-[75vh] w-auto'} object-contain rounded-2xl`}
+
+                    />
+
+                  </AnimatePresence>
+
+
+
+                  {/* Controles de Navegação da Galeria */}
+
+                  {gallery.length > 1 && (
+
+                    <div className="absolute inset-0 flex items-center justify-between px-6 opacity-0 group-hover:opacity-100 transition-opacity">
+
+                      <button onClick={() => setCurrentImageIndex((prev) => (prev - 1 + gallery.length) % gallery.length)} className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+
+                        <ChevronLeft size={24} />
+
+                      </button>
+
+                      <button onClick={() => setCurrentImageIndex((prev) => (prev + 1) % gallery.length)} className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+
+                        <ChevronRight size={24} />
+
+                      </button>
+
+                    </div>
+
+                  )}
+
+                </div>
+
+              )}
+
           </div>
 
-          {/* Miniaturas */}
-          {galleryImages.length > 1 && (
-            <div className="flex justify-center w-full"> {/* Container pai para garantir centralização total */}
-              <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide max-w-full">
-                {galleryImages.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentImageIndex(idx)}
-                    className={`relative flex-shrink-0 w-20 aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 ${idx === currentImageIndex
-                        ? 'border-blue-500 opacity-100 ring-2 ring-blue-500/20'
-                        : 'border-transparent opacity-50 hover:opacity-100'
-                      }`}
-                  >
-                    <img
-                      src={img}
-                      alt={`Thumbnail ${idx + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
+
+
+          {/* Miniaturas (Thumbnails) menores para acompanhar o estilo */}
+          {!isWebsite && gallery.length > 1 && (
+            <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide w-full justify-center">
+              {gallery.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIndex(idx)}
+                  className={`relative flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border transition-all ${idx === currentImageIndex ? 'border-blue-500 scale-105' : 'border-white/5 opacity-40 hover:opacity-100'
+                    }`}
+                >
+                  <img src={img} className="w-full h-full object-cover" alt="Thumbnail" />
+                </button>
+              ))}
             </div>
+
           )}
+
         </div>
 
-        {/* Coluna de Informações (Sem alterações) */}
-        <div className={`flex flex-col h-full ${isLandscape ? 'max-w-4xl mx-auto w-full' : ''}`}>
-          <div className="mb-8 border-b border-white/10 pb-8">
-            <span className="text-blue-500 font-bold tracking-widest text-xs uppercase mb-4 block">
-              {project.category}
-            </span>
-            <h1 className={`${isLandscape ? 'text-4xl md:text-6xl' : 'text-4xl md:text-5xl'} font-bold text-white mb-6 leading-tight`}>
+
+
+        {/* COLUNA DE INFORMAÇÕES - Alinhada à Esquerda */}
+
+        <div className={`flex flex-col ${isWebsite || isLandscape || project.category === 'Videos' ? 'w-full mt-10' : ''} text-left`}>
+
+          <div className="mb-20 border-b border-white/5 pb-10">
+
+            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-8 leading-tight">
+
               {project.title}
+
             </h1>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-neutral-400 mt-8">
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-blue-500 mb-1">
-                  <User size={16} />
-                  <span className="font-bold text-xs uppercase tracking-wider">Cliente</span>
-                </div>
-                <strong className="text-white text-base">{project.client || "Confidencial"}</strong>
+
+
+            {/* Link Externo se for Site */}
+
+            {isWebsite && project.liveUrl && (
+
+              <a
+
+                href={project.liveUrl}
+
+                target="_blank"
+
+                rel="noreferrer"
+
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-xs uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all mb-10 shadow-lg active:scale-95"
+
+              >
+
+                Abrir em nova guia <ExternalLink size={16} />
+
+              </a>
+
+            )}
+
+
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-10 mt-10">
+
+              <div className="space-y-1">
+
+                <p className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Cliente</p>
+
+                <p className="text-white font-medium">{project.client || 'Inside Studio'}</p>
+
               </div>
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-blue-500 mb-1">
-                  <Calendar size={16} />
-                  <span className="font-bold text-xs uppercase tracking-wider">Ano</span>
-                </div>
-                <strong className="text-white text-base">{project.year || "2024"}</strong>
+
+              <div className="space-y-1">
+
+                <p className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Ano</p>
+
+                <p className="text-white font-medium">{project.year || '2026'}</p>
+
               </div>
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-blue-500 mb-1">
-                  <Tag size={16} />
-                  <span className="font-bold text-xs uppercase tracking-wider">Tipo</span>
-                </div>
-                <strong className="text-white text-base">{project.type}</strong>
+
+              <div className="space-y-1">
+
+                <p className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Expertise</p>
+
+                <p className="text-white font-medium">{project.type}</p>
+
               </div>
+
             </div>
+
           </div>
 
-          <div className="mb-10">
-            <h3 className="text-xl font-bold text-white mb-4">Ideia Central</h3>
-            <p className="text-neutral-400 text-lg leading-relaxed whitespace-pre-line mb-6">
+
+
+          <div className="prose prose-invert max-w-none">
+
+            <h3 className="text-xl font-bold text-white mb-4 italic">Descrição</h3>
+
+            <p className="text-neutral-400 text-lg font-light leading-relaxed">
+
               {project.description}
+
             </p>
+
           </div>
 
-          {project.tags && project.tags.length > 0 && (
-            <div className="bg-[#080808] p-6 rounded-2xl border border-white/5">
-              <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider opacity-70">Tags & Categorias</h4>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map(tag => (
-                  <span key={tag} className="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-neutral-300 border border-white/5">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
+
+
+
       </div>
+
+      {/* --- CONTACT SECTION --- */}
+
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center bg-black-600/5 rounded-[50px] p-12 md:p-20 border border-blue-500/10 relative overflow-hidden">
+
+        <div className="relative z-10 text-left">
+
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-white leading-tight">Vamos tirar<br />sua ideia do papel?</h2>
+
+          <div className="space-y-8">
+
+            <div className="flex items-center gap-6 group">
+
+              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+
+                <Mail size={22} strokeWidth={1.2} />
+
+              </div>
+
+              <div>
+
+                <p className="text-[10px] text-neutral-500 uppercase font-bold tracking-[0.2em] mb-1">E-mail</p>
+
+                <p className="text-lg font-light">contato@insidestudio.com.br</p>
+
+              </div>
+
+            </div>
+
+            <div className="flex items-center gap-6 group">
+
+              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+
+                <Phone size={22} strokeWidth={1.2} />
+
+              </div>
+
+              <div>
+
+                <p className="text-[10px] text-neutral-500 uppercase font-bold tracking-[0.2em] mb-1">WhatsApp</p>
+
+                <p className="text-lg font-light">+55 (42) 9 9814.1401</p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className="relative z-10">
+
+          <ContactForm />
+
+        </div>
+
+      </section>
+
     </div>
+
   );
+
 };
+
+
 
 export default ProjectDetails;
