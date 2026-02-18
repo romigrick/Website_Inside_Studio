@@ -10,7 +10,7 @@ import ContactForm from '../components/ContactForm';
 import { PORTFOLIO_HERO, CLIENTS, IMPACT_STATS } from '../data';
 import Icone from '../assets/ico.png';
 
-const ROTATING_WORDS = ["to Inspire.", "to Excite.", "to Unleash.", "toElevate."];
+const ROTATING_WORDS = ["to Inspire.", "to Excite.", "to Unleash.", "to Elevate."];
 
 const Home = () => {
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ const Home = () => {
 
                 <div className="absolute inset-0 bg-bg-[#050505][url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none" />
                 <div className="absolute top-0 w-full h-full bg-gradient-to-b from-blue-600/5 via-transparent to-[#050505] z-0" />
-    
+
             </div>
             {/* 1. ULTRA-HERO: KINETIC TYPOGRAPHY */}
             <section className="relative min-h-screen flex flex-col justify-center items-center px-6 -mt-40 overflow-hidden">
@@ -41,23 +41,30 @@ const Home = () => {
                         <img src={Icone} alt="Logo" className="w-20 h-20 mx-auto drop-shadow-[0_0_30px_rgba(59,130,246,0.2)]" />
                     </motion.div>
 
-                    <h1 className="text-[13vw] md:text-[9vw] font-bold tracking-tighter leading-[0.8] uppercase mb-12">
+                    <h1 className="text-[13vw] md:text-[9vw] font-black tracking-tighter leading-[0.8] uppercase mb-12">
                         Created<br />
-                        <span className="relative inline-flex h-[1.1em] items-center justify-center overflow-hidden italic font-light text-white/30 px-6">
+                        {/* 1. h-[1.2em] garante que não corte em cima/baixo.
+      2. Removido o min-w fixo e overflow-hidden para não cortar as pontas das letras itálicas.
+      3. flex-nowrap garante que a palavra fique em uma linha só.
+    */}
+                        <span className="relative inline-flex h-[1.2em] items-center justify-center italic font-light text-white/30 px-12">
                             <AnimatePresence mode="popLayout">
                                 <motion.span
                                     key={ROTATING_WORDS[wordIndex]}
-                                    initial={{ y: "100%", rotate: 5 }}
-                                    animate={{ y: 0, rotate: 0 }}
-                                    exit={{ y: "-100%", rotate: -5 }}
+                                    initial={{ y: "100%", rotate: 5, opacity: 0 }}
+                                    animate={{ y: 0, rotate: 0, opacity: 1 }}
+                                    exit={{ y: "-100%", rotate: -5, opacity: 0 }}
                                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    /* O 'absolute' mantém o centro, e o 'whitespace-nowrap' 
+                                      evita quebras de linha indesejadas durante a animação.
+                                    */
+                                    className="absolute whitespace-nowrap"
                                 >
                                     {ROTATING_WORDS[wordIndex]}
                                 </motion.span>
                             </AnimatePresence>
                         </span>
                     </h1>
-
                     <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-12">
                         <p className="max-w-[300px] text-left text-sm text-neutral-500 font-light leading-relaxed border-l border-white/10 pl-6">
                             Transformamos visões em identidades que dominam mercados e retêm atenção.
@@ -71,7 +78,7 @@ const Home = () => {
                     </div>
                 </motion.div>
 
-                        </section>
+            </section>
 
             {/* 2. THE WALL: SEÇÃO REFINADA COM BOTÃO DE DESTAQUE */}
             <section className="relative z-20 py-20">
@@ -136,7 +143,7 @@ const Home = () => {
                     <div className="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden border border-white/10 bg-neutral-900">
                         <img src={PORTFOLIO_HERO[0].image} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                         <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-black to-transparent text-left">
-           
+
                         </div>
                     </div>
                 </div>

@@ -38,6 +38,7 @@ const ProjectDetails = () => {
 
   const isWebsite = project?.category === "Sites";
   const isBehance = !!project?.behanceUrl;
+  const isVideo = project?.category === "Videos";
 
 
 

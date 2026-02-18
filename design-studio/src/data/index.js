@@ -186,7 +186,7 @@ export const TEAM_MEMBERS = [
   },
   { 
     name: "Giseli Matos", 
-    role: "WEB Developer", 
+    role: "Web & Performance Analyst", 
     image: imgGi,
     linkedin: "https://www.linkedin.com/in/giseli-matos/",
     instagram: "https://instagram.com/gisamtos_",
