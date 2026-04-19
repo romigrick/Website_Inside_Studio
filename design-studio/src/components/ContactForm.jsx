@@ -6,6 +6,7 @@ const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('Orçamento de Projeto');
+  const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -22,21 +23,22 @@ const ContactForm = () => {
     const templateParams = {
         from_name: name,
         email: email,
+        phone: phone,
         subject: subject,
         message: message
     }
 
-    const templateId = "template_a26d45n";
-    const serviceId = "service_wueiv3d";
-    const myKey = "0sABaEPF59PqSVtsU";
-    const replyID = "template_426xx6q";
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const myKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const replyID = import.meta.env.VITE_EMAILJS_REPLY_ID;
 
-    // ⚠️ SUBSTITUA PELOS SEUS DADOS DO EMAILJS AQUI ⚠️
     emailjs.send(serviceId, templateId, templateParams, myKey)
     .then((response) => {
         console.log("EMAIL ENVIADO", response.status, response.text);
         setName('');
         setEmail('');
+        setPhone('');
         setMessage('');
         setLoading(false);
        // alert("Mensagem enviada com sucesso!");
@@ -51,6 +53,7 @@ const ContactForm = () => {
         console.log("EMAIL ENVIADO", response.status, response.text);
         setName('');
         setEmail('');
+        setPhone('');
         setMessage('');
         setLoading(false);
        // alert("Mensagem enviada com sucesso!");
@@ -88,7 +91,19 @@ const ContactForm = () => {
             value={email}
           />
         </div>
+
       </div>
+              {/* fone */}
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-neutral-400">Telefone</label>
+          <input 
+            type="phone" 
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" 
+            placeholder="(XX) XXXXX-XXXX" 
+            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+          />
+        </div>
 
 {/* ASSUNTO */}
       <div className="space-y-2">
