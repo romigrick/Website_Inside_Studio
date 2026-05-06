@@ -1,4 +1,9 @@
 import { Smartphone, Video, Camera, Layers, Zap, MousePointer2, TrendingUp, Globe, Cpu } from 'lucide-react';
+import fotoLuiz from '../portfolio/Luiz Schuchowsky/Luiz.png';
+import patoesteSolar from '../portfolio/PatoesteSolar/patoesteSolar.png';
+import uplayCC from '../portfolio/UplayCC/uplayCC.png';
+import allCrossLP from '../portfolio/AllCrossLP/allCrossLP.png';
+import proelectric from '../portfolio/Proelectric/proelectric.png';
 
 // Portfolio - Bianchi
 import Bianchi1 from '../portfolio/Bianchi/Bianchi1.png';
@@ -450,11 +455,10 @@ export const PORTFOLIO_FULL = [
     tags: ["Material Institucional", "Campanhas", "Identidade Educacional", "Aplicações Acadêmicas"],
     span: "md:col-span-1 md:row-span-1"
   },
-
   { 
     id: 19, 
     type: "Energia Solar", 
-    title: "Website BF Energia", 
+    title: "BF Energia", 
     category: "Sites", 
     client: "BF Energia Solar",
     year: "2024",
@@ -463,7 +467,69 @@ export const PORTFOLIO_FULL = [
     gallery: [bfAntes, bfDepois],
     image: bfDepois
   },
+  { 
+    id: 24, 
+    type: "Investimentos", 
+    title: "XP Investimentos", 
+    category: "Sites", 
+    client: "Luiz Schuchowsky",
+    year: "2026",
+    description: "Landing Page desenvolvida para o assessor de investimentos do grupo Valore Elbrus. Desenvolvida em React + Tailwind, focado em rapidez de desenvolvimento e conversão.",
+    liveUrl: "https://luizschuchowsky.insd.me",
+    gallery: fotoLuiz,
+    image: fotoLuiz
+  },
 
+    { 
+    id: 25, 
+    type: "Energia Solar", 
+    title: "Patoeste Solar", 
+    category: "Sites", 
+    client: "Patoeste Solar",
+    year: "2025",
+    description: "Site desenvolvido em Wordpress para a Patoeste Solar, em Pato Branco - PR. O site apresenta um design moderno e responsivo, com foco em conversão e experiência do usuário, destacando os serviços e diferenciais da empresa.",
+    liveUrl: "https://solar.patoeste.com.br/",
+    gallery: patoesteSolar,
+    image: patoesteSolar
+  },    
+  { 
+    id: 26, 
+    type: "Academia", 
+    title: "Uplay Campo Comprido", 
+    category: "Sites", 
+    client: "Uplay",
+    year: "2026",
+    description: "Landing page focada em conversão para a unidade do Campo Comprido da rede de academias Uplay. Desenvolvida em React + Tailwind, apresenta um design moderno e responsivo, destacando os serviços e diferenciais da academia para atrair novos alunos.",
+    liveUrl: "https://uplay.insd.me",
+    gallery: uplayCC,
+    image: uplayCC
+  },
+
+    { 
+    id: 27, 
+    type: "Plano de Saude", 
+    title: "Allcross Planos de Saúde", 
+    category: "Sites", 
+    client: "Allcross",
+    year: "2026",
+    description: "Landing page para captação de Leads para a Allcross, corretora de planos de saúde. A página conta com um sistema rotativo de consultores, de modo que, cada lead será direcionado para um consultor, sem necessidade de intervenção humana na hora de fazer a distribuição de leads para múltiplos consultores. ",
+    liveUrl: "https://allcross.insd.me",
+    gallery: allCrossLP,
+    image: allCrossLP
+  },
+      { 
+    id: 28, 
+    type: "Energia Elétrica", 
+    title: "Proelectric Energia", 
+    category: "Sites", 
+    client: "Proelectric",
+    year: "2024",
+    description: "Site para empresa especializada em Energia Elétrica. Desenvolvido em Wordpress com design responsivo e focado em performance.",
+    liveUrl: "https://proelectricpr.com.br",
+    gallery: proelectric,
+    image: proelectric
+  },
+  
   {id: 20,
     type: "Cobertura de Casamento",
     title: "Casamento Maria & Matheus",
