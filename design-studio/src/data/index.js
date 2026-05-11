@@ -189,17 +189,7 @@ export const TEAM_MEMBERS = [
     skills: ["Web Developer", "Fotógrafo", "Graphic Designer", "Film Maker", "UI/UX"],
     experience: "5+ anos"
   },
-  { 
-    name: "Giseli Matos", 
-    role: "Web & Performance Analyst", 
-    image: imgGi,
-    linkedin: "https://www.linkedin.com/in/giseli-matos/",
-    instagram: "https://instagram.com/gisamtos_",
-    github: "https://github.com/GiseliMatos",
-    bio: "Especialista em desenvolvimento web que transforma designs em experiências digitais interativas e funcionais.",
-    skills: ["React", "Wordpress", "Google ADS", "Facebook ADS"],
-    experience: "3+ anos"
-  },
+
   { 
     name: "Guilherme F. Teixeira", 
     role: "Designer Gráfico & Motion", 
